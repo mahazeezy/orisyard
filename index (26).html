@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Orisyard · Cupcakes, Cakes, Bentos · Merrillville, IN</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--rose:#f472b6;--rose-light:#fce7f3;--rose-deep:#db2777;--blush:#fdf2f8;--cream:#fff9fb;--mauve:#9d174d;--text:#1a0a12;--muted:#9f6b7e}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--text);font-family:'DM Sans',sans-serif;overflow-x:hidden;cursor:none}
+.cursor{width:12px;height:12px;background:var(--rose);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;mix-blend-mode:multiply;transition:transform .15s}
+.cursor-ring{width:36px;height:36px;border:1.5px solid var(--rose);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transition:transform .3s ease,width .3s,height .3s;mix-blend-mode:multiply}
+.petal{position:fixed;pointer-events:none;z-index:0;animation:floatPetal linear infinite;opacity:.35}
+@keyframes floatPetal{0%{transform:translateY(-20px) rotate(0deg);opacity:0}10%{opacity:.35}90%{opacity:.25}100%{transform:translateY(110vh) rotate(720deg);opacity:0}}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;width:100%;z-index:100;padding:16px 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(253,242,248,.88);backdrop-filter:blur(20px);border-bottom:1px solid rgba(244,114,182,.15)}
+.nav-logo img{height:52px;filter:drop-shadow(0 4px 12px rgba(219,39,119,.2));transition:transform .3s}
+.nav-logo img:hover{transform:scale(1.05) rotate(-2deg)}
+.nav-links{display:flex;gap:24px;list-style:none}
+.nav-links a{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:500;color:var(--muted);text-decoration:none;letter-spacing:1px;transition:color .2s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:1px;background:var(--rose);transform:scaleX(0);transition:transform .3s}
+.nav-links a:hover{color:var(--rose-deep)}.nav-links a:hover::after{transform:scaleX(1)}
+.nav-links a.active{color:var(--rose-deep)}.nav-links a.active::after{transform:scaleX(1)}
+.nav-right{display:flex;align-items:center;gap:10px}
+.nav-order{background:linear-gradient(135deg,var(--rose),var(--rose-deep));color:white;padding:10px 22px;border-radius:50px;font-size:.85rem;text-decoration:none;font-weight:500;letter-spacing:.5px;box-shadow:0 8px 24px rgba(219,39,119,.3);transition:transform .2s,box-shadow .2s}
+.nav-order:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(219,39,119,.4)}
+.cart-btn{position:relative;background:white;color:var(--rose-deep);padding:9px 18px;border-radius:50px;font-size:.85rem;text-decoration:none;font-weight:500;letter-spacing:.5px;border:1.5px solid rgba(244,114,182,.35);transition:all .2s;display:flex;align-items:center;gap:7px}
+.cart-btn:hover{border-color:var(--rose);background:var(--rose-light);transform:translateY(-2px)}
+.cart-count{background:var(--rose-deep);color:white;border-radius:50%;width:18px;height:18px;font-size:.62rem;font-weight:700;display:flex;align-items:center;justify-content:center;min-width:18px;transition:transform .3s}
+.cart-count.bump{transform:scale(1.5)}
+.cart-count.hidden{display:none}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:120px 48px 80px}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 80% at 50% 0%,rgba(244,114,182,.12) 0%,transparent 60%),radial-gradient(ellipse 60% 60% at 80% 80%,rgba(251,207,232,.2) 0%,transparent 60%)}
+.hero-blob{position:absolute;border-radius:50%;filter:blur(60px);animation:blobFloat 8s ease-in-out infinite}
+.b1{width:500px;height:500px;background:rgba(244,114,182,.12);top:-100px;right:-100px}
+.b2{width:350px;height:350px;background:rgba(251,207,232,.2);bottom:0;left:-80px;animation-delay:-4s}
+@keyframes blobFloat{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-30px) scale(1.05)}}
+.hero-inner{position:relative;z-index:10;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:1100px}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(244,114,182,.1);border:1px solid rgba(244,114,182,.3);padding:6px 18px;border-radius:50px;font-size:.72rem;color:var(--rose-deep);letter-spacing:3px;text-transform:uppercase;margin-bottom:20px}
+.hero-tag-dot{width:5px;height:5px;background:var(--rose);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(244,114,182,.5)}50%{box-shadow:0 0 0 8px rgba(244,114,182,0)}}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(3rem,6vw,5.5rem);font-weight:900;line-height:1.0;letter-spacing:-1px;margin-bottom:20px}
+.line1{display:block;color:var(--text)}.line2{display:block;background:linear-gradient(135deg,var(--rose) 0%,var(--rose-deep) 60%,var(--mauve) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-style:italic}
+.hero-sub{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:300;color:var(--muted);line-height:1.8;margin-bottom:36px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:40px}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--rose),var(--rose-deep));color:white;padding:14px 32px;border-radius:50px;font-size:.9rem;font-weight:500;text-decoration:none;box-shadow:0 12px 32px rgba(219,39,119,.35);transition:transform .2s,box-shadow .2s;letter-spacing:.5px}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 20px 40px rgba(219,39,119,.4)}
+.btn-secondary{display:inline-flex;align-items:center;gap:8px;border:1.5px solid rgba(244,114,182,.4);color:var(--rose-deep);padding:14px 32px;border-radius:50px;font-size:.9rem;font-weight:500;text-decoration:none;transition:all .2s;letter-spacing:.5px}
+.btn-secondary:hover{background:rgba(244,114,182,.08);border-color:var(--rose);transform:translateY(-3px)}
+.hero-badges{display:flex;gap:16px}
+.hero-badge{text-align:center;background:white;border:1px solid rgba(244,114,182,.15);border-radius:16px;padding:14px 20px;box-shadow:0 4px 20px rgba(219,39,119,.08)}
+.hero-badge-val{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--rose-deep)}
+.hero-badge-label{font-size:.68rem;color:var(--muted);letter-spacing:1px;margin-top:2px}
+.hero-visual{position:relative;display:flex;align-items:center;justify-content:center}
+.hero-logo-wrap{position:relative;animation:floatLogo 6s ease-in-out infinite}
+@keyframes floatLogo{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-20px) rotate(2deg)}}
+.hero-logo-wrap img{width:380px;height:380px;object-fit:cover;border-radius:50%;box-shadow:0 0 0 8px rgba(244,114,182,.1),0 0 0 16px rgba(244,114,182,.06),0 40px 80px rgba(219,39,119,.2),0 0 120px rgba(244,114,182,.15)}
+.hero-ring{position:absolute;inset:-20px;border:2px dashed rgba(244,114,182,.3);border-radius:50%;animation:spin 20s linear infinite}
+.hero-ring2{position:absolute;inset:-40px;border:1px dashed rgba(244,114,182,.15);border-radius:50%;animation:spin 30s linear infinite reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+.float-badge{position:absolute;background:white;border-radius:16px;padding:10px 16px;box-shadow:0 8px 32px rgba(219,39,119,.15);border:1px solid rgba(244,114,182,.2);font-size:.8rem;font-weight:600;color:var(--rose-deep);white-space:nowrap;animation:floatB 4s ease-in-out infinite}
+@keyframes floatB{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.float-badge.fb1{top:20px;right:-10px;animation-delay:0s}
+.float-badge.fb2{bottom:40px;left:-20px;animation-delay:-2s}
+.float-badge.fb3{top:50%;right:-30px;animation-delay:-1s}
+
+.divider{text-align:center;padding:24px;font-size:1.4rem;letter-spacing:8px;color:rgba(244,114,182,.45)}
+section{padding:100px 48px;position:relative}
+.section-tag{display:inline-flex;align-items:center;gap:8px;font-family:'Cormorant Garamond',serif;font-size:.78rem;letter-spacing:4px;text-transform:uppercase;color:var(--rose);margin-bottom:12px}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:900;letter-spacing:-.5px;margin-bottom:16px;line-height:1.1}
+.section-sub{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--muted);line-height:1.8;margin-bottom:48px;font-weight:300;max-width:540px}
+
+/* ── MENU PREVIEW SECTION ── */
+.menu-preview{background:var(--blush)}
+.menu-preview-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;max-width:1100px;margin-bottom:40px}
+.preview-card{background:white;border-radius:20px;padding:24px 20px;border:1px solid rgba(244,114,182,.12);text-align:center;transition:all .3s;cursor:pointer;text-decoration:none;display:block;color:inherit}
+.preview-card:hover{box-shadow:0 20px 50px rgba(219,39,119,.13);transform:translateY(-6px);border-color:rgba(244,114,182,.3)}
+.preview-card-emoji{font-size:2.4rem;margin-bottom:12px;display:block}
+.preview-card-name{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;margin-bottom:4px}
+.preview-card-desc{font-size:.78rem;color:var(--muted);line-height:1.6;margin-bottom:12px}
+.preview-card-from{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:800;color:var(--rose-deep)}
+.menu-cta-row{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+
+/* ── FLAVORS / PRICING ── */
+.flavors-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:1100px}
+.flavor-card{background:white;border-radius:24px;padding:32px 28px;border:1px solid rgba(244,114,182,.12);transition:box-shadow .3s,transform .3s;position:relative;overflow:hidden;cursor:pointer}
+.flavor-card:hover{box-shadow:0 24px 60px rgba(219,39,119,.15);transform:translateY(-6px)}
+.flavor-top{height:4px;background:linear-gradient(90deg,var(--rose),var(--rose-deep));border-radius:4px 4px 0 0;position:absolute;top:0;left:0;right:0}
+.flavor-emoji{font-size:2.8rem;margin-bottom:16px;display:block}
+.flavor-name{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;margin-bottom:8px}
+.flavor-desc{font-size:.85rem;color:var(--muted);line-height:1.7;margin-bottom:16px}
+.flavor-price{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--rose-deep)}
+.flavor-price span{font-size:.75rem;color:var(--muted);font-family:'DM Sans',sans-serif;font-weight:400}
+.price-card{background:white;border:1px solid rgba(244,114,182,.15);border-radius:20px;padding:24px;text-align:center;box-shadow:0 4px 20px rgba(219,39,119,.06);transition:transform .3s}
+.price-card:hover{transform:translateY(-4px)}
+.price-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;max-width:1100px}
+.policy-card{background:var(--blush);border:1px solid rgba(244,114,182,.2);border-radius:20px;padding:28px;transition:transform .3s,box-shadow .3s}
+.policy-card:hover{transform:translateY(-6px);box-shadow:0 20px 48px rgba(219,39,119,.12)}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;max-width:1100px}
+.why-logo{width:320px;height:320px;object-fit:cover;border-radius:32px;box-shadow:0 32px 80px rgba(219,39,119,.2);transform:perspective(800px) rotateY(-8deg) rotateX(4deg);transition:transform .4s}
+.why-logo:hover{transform:perspective(800px) rotateY(0) rotateX(0)}
+.why-deco{position:absolute;bottom:-20px;right:-20px;width:140px;height:140px;background:linear-gradient(135deg,var(--rose-light),rgba(244,114,182,.2));border-radius:24px;z-index:-1}
+.why-list{list-style:none}
+.why-item{display:flex;gap:16px;align-items:flex-start;padding:20px 0;border-bottom:1px solid rgba(244,114,182,.1)}
+.why-item:last-child{border-bottom:none}
+.why-icon{font-size:1.6rem;width:48px;height:48px;display:flex;align-items:center;justify-content:center;background:var(--blush);border-radius:12px;flex-shrink:0}
+.why-item-title{font-weight:600;font-size:.95rem;margin-bottom:4px}
+.why-item-desc{font-size:.83rem;color:var(--muted);line-height:1.6}
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;max-width:1100px}
+.review-card{background:var(--blush);border-radius:20px;padding:28px;border:1px solid rgba(244,114,182,.12);transition:transform .3s,box-shadow .3s}
+.review-card:hover{transform:translateY(-6px);box-shadow:0 20px 48px rgba(219,39,119,.12)}
+.review-stars{font-size:1rem;margin-bottom:12px;letter-spacing:2px;color:#f59e0b}
+.review-text{font-family:'Cormorant Garamond',serif;font-size:1.05rem;line-height:1.7;color:var(--text);font-style:italic;margin-bottom:16px}
+.review-author{font-size:.78rem;font-weight:600;color:var(--rose-deep);letter-spacing:1px;text-transform:uppercase}
+.order-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin:48px 0}
+.order-card{background:white;border-radius:20px;padding:24px 16px;border:1px solid rgba(244,114,182,.15);text-decoration:none;display:block;transition:all .3s;box-shadow:0 4px 20px rgba(219,39,119,.06);text-align:center}
+.order-card:hover{transform:translateY(-6px);box-shadow:0 20px 48px rgba(219,39,119,.18);border-color:var(--rose)}
+.order-card-icon{font-size:2rem;margin-bottom:10px;display:block}
+.order-card-label{font-size:.65rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.order-card-val{font-size:.88rem;color:var(--rose-deep);font-weight:600}
+footer{background:var(--text);color:rgba(255,255,255,.7);padding:48px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px}
+.footer-brand img{height:60px;border-radius:50%;opacity:.9;margin-bottom:12px;display:block}
+.footer-brand p{font-size:.82rem;line-height:1.7;color:rgba(255,255,255,.4)}
+.footer-col h4{font-family:'Playfair Display',serif;font-size:.9rem;color:rgba(255,255,255,.9);margin-bottom:16px}
+.footer-col p,.footer-col a{font-size:.82rem;color:rgba(255,255,255,.45);margin-bottom:8px;display:block;text-decoration:none;line-height:1.6;transition:color .2s}
+.footer-col a:hover{color:var(--rose)}
+.footer-bottom{background:rgba(0,0,0,.3);padding:16px 48px;text-align:center;font-size:.75rem;color:rgba(255,255,255,.25)}
+
+@media(max-width:900px){
+  nav{padding:14px 20px}.nav-links{display:none}
+  section{padding:70px 20px}.hero{padding:100px 20px 60px}
+  .hero-inner{grid-template-columns:1fr;gap:40px;text-align:center}
+  .hero-visual{order:-1}.hero-logo-wrap img{width:240px;height:240px}
+  .hero-badges{justify-content:center}.hero-btns{justify-content:center}
+  .why-grid{grid-template-columns:1fr}
+  footer{grid-template-columns:1fr;padding:40px 20px}.footer-bottom{padding:16px 20px}
+  .menu-cta-row{flex-direction:column}
+}
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="petal" style="left:5%;animation-duration:12s;animation-delay:0s;font-size:1rem">🌸</div>
+<div class="petal" style="left:15%;animation-duration:15s;animation-delay:-3s;font-size:.8rem">🌷</div>
+<div class="petal" style="left:30%;animation-duration:11s;animation-delay:-6s;font-size:1.2rem">🌸</div>
+<div class="petal" style="left:50%;animation-duration:14s;animation-delay:-2s;font-size:.9rem">🌺</div>
+<div class="petal" style="left:65%;animation-duration:13s;animation-delay:-8s;font-size:1rem">🌸</div>
+<div class="petal" style="left:80%;animation-duration:16s;animation-delay:-4s;font-size:.7rem">🌷</div>
+<div class="petal" style="left:92%;animation-duration:10s;animation-delay:-1s;font-size:1.1rem">🌸</div>
+
+<nav>
+  <a href="index.html" class="nav-logo"><img src="https://i.imgur.com/8ywHiOJ.jpeg" alt="Orisyard"></a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="menu.html">Menu</a></li>
+    <li><a href="#why">Our Story</a></li>
+    <li><a href="#policies">Policies</a></li>
+    <li><a href="#shipping">Shipping</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#order">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="cart.html" class="cart-btn" id="cartBtn">
+      🛍️ Cart <span class="cart-count hidden" id="cartCount">0</span>
+    </a>
+    <a href="tel:2198011578" class="nav-order">📞 Order Now</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-blob b1"></div>
+  <div class="hero-blob b2"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag"><div class="hero-tag-dot"></div>Handmade · Est. 2024</div>
+      <h1 class="hero-title"><span class="line1">Cookies</span><span class="line2">Made With Love</span></h1>
+      <p class="hero-sub">Handcrafted cupcakes, cakes, bentos and cookies baked fresh to order in Merrillville, Indiana. Every bite tells a story of passion and flavor.</p>
+      <div class="hero-btns">
+        <a href="menu.html" class="btn-primary">🍪 Browse Menu</a>
+        <a href="cart.html" class="btn-secondary">🛍️ View Cart →</a>
+      </div>
+      <div class="hero-badges">
+        <div class="hero-badge"><div class="hero-badge-val">6+</div><div class="hero-badge-label">Flavors</div></div>
+        <div class="hero-badge"><div class="hero-badge-val">$2.35</div><div class="hero-badge-label">Per Cookie</div></div>
+        <div class="hero-badge"><div class="hero-badge-val">100%</div><div class="hero-badge-label">Handmade</div></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-logo-wrap">
+        <div class="hero-ring"></div>
+        <div class="hero-ring2"></div>
+        <img src="https://i.imgur.com/8ywHiOJ.jpeg" alt="Orisyard">
+        <div class="float-badge fb1">🌸 Fresh Daily</div>
+        <div class="float-badge fb2">✨ Handcrafted</div>
+        <div class="float-badge fb3">🎀 Gift Ready</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider">🌸 · 🌸 · 🌸</div>
+
+<!-- MENU PREVIEW -->
+<section class="menu-preview" id="menu">
+  <div class="section-tag">🍰 What We Make</div>
+  <h2 class="section-title">Our Treats</h2>
+  <p class="section-sub">Cakes, cupcakes, bento boxes, and cookies — all handcrafted fresh to order. Click any category to explore the full menu.</p>
+  <div class="menu-preview-grid">
+    <a href="menu.html#section-cakes" class="preview-card">
+      <span class="preview-card-emoji">🎂</span>
+      <div class="preview-card-name">Cakes</div>
+      <div class="preview-card-desc">5in. round, 6in. round & heart shaped. 3 layers with vanilla Swiss meringue buttercream.</div>
+      <div class="preview-card-from">From $60</div>
+    </a>
+    <a href="menu.html#section-cupcakes" class="preview-card">
+      <span class="preview-card-emoji">🧁</span>
+      <div class="preview-card-name">Cupcakes</div>
+      <div class="preview-card-desc">12 or 24 count cupcakes in your choice of flavor with beautiful frosting.</div>
+      <div class="preview-card-from">From $35</div>
+    </a>
+    <a href="menu.html#section-bentos" class="preview-card">
+      <span class="preview-card-emoji">🍱</span>
+      <div class="preview-card-name">Bento Box</div>
+      <div class="preview-card-desc">5in. cake + 8 cupcakes. The perfect bundle for celebrations and gifting.</div>
+      <div class="preview-card-from">$60</div>
+    </a>
+    <a href="menu.html#section-cookies" class="preview-card">
+      <span class="preview-card-emoji">🍪</span>
+      <div class="preview-card-name">Cookies</div>
+      <div class="preview-card-desc">7 flavors plus a Sweetheart Variety Pack. Ships nationwide from just $10.</div>
+      <div class="preview-card-from">From $2.35</div>
+    </a>
+  </div>
+  <div class="menu-cta-row">
+    <a href="menu.html" class="btn-primary">🌸 See Full Menu & Order</a>
+    <a href="cart.html" class="btn-secondary">🛍️ View Cart</a>
+  </div>
+</section>
+
+<div class="divider">🌷 · 🌷 · 🌷</div>
+
+<!-- POLICIES -->
+<section id="policies" style="background:white">
+  <div class="section-tag">📋 Policies</div>
+  <h2 class="section-title">Order Policies</h2>
+  <p class="section-sub">Please read before placing your order. We want everything to go smoothly for you!</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;max-width:1100px">
+    <div class="policy-card"><div style="font-size:2rem;margin-bottom:12px">💰</div><div style="font-family:'Playfair Display',serif;font-weight:700;font-size:1.05rem;margin-bottom:8px">Deposit for Cakes</div><div style="font-size:.85rem;color:var(--muted);line-height:1.7">50% non-refundable deposit required to secure a cake order. Remaining balance due 2 days before pickup date.</div></div>
+    <div class="policy-card"><div style="font-size:2rem;margin-bottom:12px">📦</div><div style="font-family:'Playfair Display',serif;font-weight:700;font-size:1.05rem;margin-bottom:8px">Shipping Orders</div><div style="font-size:.85rem;color:var(--muted);line-height:1.7">Items that need to be shipped must be paid in full to secure the order. No exceptions.</div></div>
+    <div class="policy-card"><div style="font-size:2rem;margin-bottom:12px">🎨</div><div style="font-family:'Playfair Display',serif;font-weight:700;font-size:1.05rem;margin-bottom:8px">Custom Designs</div><div style="font-size:.85rem;color:var(--muted);line-height:1.7">Custom designs should be ordered 2–3 weeks in advance to ensure all decorations arrive on time.</div></div>
+    <div class="policy-card"><div style="font-size:2rem;margin-bottom:12px">🍰</div><div style="font-family:'Playfair Display',serif;font-weight:700;font-size:1.05rem;margin-bottom:8px">One Flavor Per Product</div><div style="font-size:.85rem;color:var(--muted);line-height:1.7">Only one cake flavor per product. Please choose your flavor when placing your order.</div></div>
+    <div class="policy-card"><div style="font-size:2rem;margin-bottom:12px">📅</div><div style="font-family:'Playfair Display',serif;font-weight:700;font-size:1.05rem;margin-bottom:8px">Order in Advance</div><div style="font-size:.85rem;color:var(--muted);line-height:1.7">Orders must be placed at least 1 week before pickup date. Orders placed after will be considered a rush order — contact for more info.</div></div>
+    <div class="policy-card" style="background:linear-gradient(135deg,rgba(244,114,182,.1),rgba(219,39,119,.08));border-color:rgba(244,114,182,.3)"><div style="font-size:2rem;margin-bottom:12px">💳</div><div style="font-family:'Playfair Display',serif;font-weight:700;font-size:1.05rem;margin-bottom:8px">Payment Methods</div><div style="font-size:.85rem;color:var(--muted);line-height:1.7">We accept <strong style="color:var(--rose-deep)">Apple Pay</strong> and <strong style="color:var(--rose-deep)">Cash App</strong> only.</div></div>
+  </div>
+</section>
+
+<div class="divider">🌺 · 🌺 · 🌺</div>
+
+<!-- SHIPPING -->
+<section id="shipping" style="background:var(--blush)">
+  <div class="section-tag">🚚 Shipping</div>
+  <h2 class="section-title">We Ship Nationwide!</h2>
+  <p class="section-sub">Love Orisyard but not in Indiana? No problem — we ship freshly baked cookies straight to your door anywhere in the USA. Shipping starts at $10.</p>
+  <div class="flavors-grid" style="margin-bottom:40px">
+    <div class="flavor-card"><div class="flavor-top"></div><span class="flavor-emoji">📦</span><div class="flavor-name">Carefully Packaged</div><div class="flavor-desc">Every order packed to keep cookies fresh and intact during transit.</div></div>
+    <div class="flavor-card"><div class="flavor-top"></div><span class="flavor-emoji">🚀</span><div class="flavor-name">Fast Shipping</div><div class="flavor-desc">Most orders arrive within 2–4 business days anywhere in the continental USA.</div></div>
+    <div class="flavor-card"><div class="flavor-top"></div><span class="flavor-emoji">🎀</span><div class="flavor-name">Gift Ready</div><div class="flavor-desc">Gift packaging and personalized notes available. Perfect for birthdays and surprises.</div></div>
+    <div class="flavor-card"><div class="flavor-top"></div><span class="flavor-emoji">💰</span><div class="flavor-name">Paid in Full</div><div class="flavor-desc">All shipping orders must be paid in full upfront to secure your order.</div></div>
+  </div>
+  <div style="background:white;border:1px solid rgba(244,114,182,.2);border-radius:24px;padding:32px;max-width:700px;text-align:center">
+    <div style="font-size:2rem;margin-bottom:12px">🌸</div>
+    <div style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;margin-bottom:8px">Ready to ship to all 50 states!</div>
+    <div style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--muted);line-height:1.7;margin-bottom:20px">DM us on Instagram or call to place a shipping order. Cookies only. Shipping starts at $10.</div>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <a href="https://instagram.com/orisyard" target="_blank" class="btn-primary">📸 DM on Instagram</a>
+      <a href="tel:2198011578" class="btn-secondary">📱 Call to Order</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider">🌸 · 🌸 · 🌸</div>
+
+<!-- WHY -->
+<section id="why" style="background:white">
+  <div class="why-grid">
+    <div style="position:relative;display:flex;align-items:center;justify-content:center"><img src="https://i.imgur.com/8ywHiOJ.jpeg" alt="Orisyard" class="why-logo"><div class="why-deco"></div></div>
+    <div>
+      <div class="section-tag">🌸 Our Promise</div>
+      <h2 class="section-title">Why Orisyard?</h2>
+      <ul class="why-list">
+        <li class="why-item"><div class="why-icon">🫶</div><div><div class="why-item-title">Made With Real Love</div><div class="why-item-desc">Every item handcrafted with care. No mass production — just passion baked into every bite.</div></div></li>
+        <li class="why-item"><div class="why-icon">🌿</div><div><div class="why-item-title">Quality Ingredients Only</div><div class="why-item-desc">Premium butter, real vanilla, and the finest chocolate. You can taste the difference.</div></div></li>
+        <li class="why-item"><div class="why-icon">🎁</div><div><div class="why-item-title">Perfect for Gifting</div><div class="why-item-desc">Beautifully packaged for birthdays, holidays, events, or just because.</div></div></li>
+        <li class="why-item"><div class="why-icon">⚡</div><div><div class="why-item-title">Fresh to Order</div><div class="why-item-desc">We bake fresh for every order — never frozen, never stale.</div></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="divider">🌺 · 🌺 · 🌺</div>
+
+<!-- REVIEWS -->
+<section id="reviews" style="background:var(--blush)">
+  <div class="section-tag">💬 Reviews</div>
+  <h2 class="section-title">What People Say</h2>
+  <div class="reviews-grid">
+    <div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">"These cookies are absolutely divine. The double chocolate is out of this world — my whole family is obsessed!"</div><div class="review-author">— Sarah M., Merrillville</div></div>
+    <div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">"Ordered for my daughter's birthday and everyone was asking where I got them. Orisyard never disappoints!"</div><div class="review-author">— Keisha T., Chicago</div></div>
+    <div class="review-card"><div class="review-stars">★★★★★</div><div class="review-text">"The lemon glazed cookies are something else. So fresh and perfectly sweet. Already ordered three times!"</div><div class="review-author">— Maria R., Hammond</div></div>
+  </div>
+</section>
+
+<!-- ORDER / CONTACT -->
+<section id="order" style="background:white;text-align:center">
+  <div style="max-width:680px;margin:0 auto">
+    <div class="section-tag" style="justify-content:center">🛍️ Order</div>
+    <h2 class="section-title">Ready to Order?</h2>
+    <p class="section-sub" style="margin:0 auto 0;text-align:center">Based in Merrillville, Indiana. Pickup available. Cookies ship nationwide starting at $10. Apple Pay & Cash App only.</p>
+    <div class="order-cards">
+      <a href="tel:2198011578" class="order-card"><span class="order-card-icon">📱</span><div class="order-card-label">Call or Text</div><div class="order-card-val">(219) 801-1578</div></a>
+      <a href="mailto:demmahumyaseec@gmail.com" class="order-card"><span class="order-card-icon">✉️</span><div class="order-card-label">Email Us</div><div class="order-card-val">demmahumyaseec@gmail.com</div></a>
+      <a href="https://instagram.com/orisyard" target="_blank" class="order-card"><span class="order-card-icon">📸</span><div class="order-card-label">Instagram</div><div class="order-card-val">@orisyard</div></a>
+      <a href="menu.html" class="order-card"><span class="order-card-icon">🍪</span><div class="order-card-label">Browse Menu</div><div class="order-card-val">Full Menu →</div></a>
+    </div>
+    <a href="menu.html" class="btn-primary" style="font-size:1rem;padding:18px 48px;margin:0 auto;display:inline-flex">🍪 Browse Menu & Order</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand">
+    <img src="https://i.imgur.com/8ywHiOJ.jpeg" alt="Orisyard">
+    <p>Handcrafted cupcakes, cakes, bentos & cookies made with love in Merrillville, Indiana. Est. 2024.</p>
+  </div>
+  <div class="footer-col">
+    <h4>Pages</h4>
+    <a href="index.html">Home</a>
+    <a href="menu.html">Full Menu</a>
+    <a href="cart.html">Cart</a>
+    <a href="#policies">Policies</a>
+    <a href="#shipping">Shipping</a>
+    <a href="#reviews">Reviews</a>
+  </div>
+  <div class="footer-col">
+    <h4>Contact</h4>
+    <a href="tel:2198011578">📱 (219) 801-1578</a>
+    <a href="mailto:demmahumyaseec@gmail.com">✉️ demmahumyaseec@gmail.com</a>
+    <a href="https://instagram.com/orisyard">📸 @orisyard</a>
+    <p>📍 Merrillville, Indiana</p>
+    <p>💳 Apple Pay · Cash App</p>
+  </div>
+</footer>
+<div class="footer-bottom">© 2024 Orisyard Cupcakes, Cakes, Bentos · Merrillville, Indiana · All rights reserved</div>
+
+<script>
+const cursor=document.getElementById('cursor'),ring=document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.transform=`translate(${mx-6}px,${my-6}px)`;});
+function animateRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.transform=`translate(${rx-18}px,${ry-18}px)`;requestAnimationFrame(animateRing);}
+animateRing();
+
+// Show cart count from localStorage
+const cart = JSON.parse(localStorage.getItem('orisyard_cart')||'[]');
+const total = cart.reduce((a,b)=>a+b.qty,0);
+const countEl = document.getElementById('cartCount');
+if(total>0){countEl.textContent=total;countEl.classList.remove('hidden');}
+
+// Tilt cards
+document.querySelectorAll('.flavor-card').forEach(card=>{
+  card.addEventListener('mousemove',e=>{const r=card.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top,cx=r.width/2,cy=r.height/2;card.style.transform=`perspective(800px) rotateX(${(y-cy)/cy*-8}deg) rotateY(${(x-cx)/cx*8}deg) translateY(-8px)`;});
+  card.addEventListener('mouseleave',()=>{card.style.transform='';});
+});
+</script>
+</body>
+</html>

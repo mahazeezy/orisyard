@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menu · Orisyard · Merrillville, IN</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--rose:#f472b6;--rose-light:#fce7f3;--rose-deep:#db2777;--blush:#fdf2f8;--cream:#fff9fb;--mauve:#9d174d;--text:#1a0a12;--muted:#9f6b7e}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--text);font-family:'DM Sans',sans-serif;overflow-x:hidden;cursor:none}
+.cursor{width:12px;height:12px;background:var(--rose);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;mix-blend-mode:multiply;transition:transform .15s}
+.cursor-ring{width:36px;height:36px;border:1.5px solid var(--rose);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transition:transform .3s ease,width .3s,height .3s;mix-blend-mode:multiply}
+.petal{position:fixed;pointer-events:none;z-index:0;animation:floatPetal linear infinite;opacity:.35}
+@keyframes floatPetal{0%{transform:translateY(-20px) rotate(0deg);opacity:0}10%{opacity:.35}90%{opacity:.25}100%{transform:translateY(110vh) rotate(720deg);opacity:0}}
+nav{position:fixed;top:0;width:100%;z-index:100;padding:16px 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(253,242,248,.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(244,114,182,.15)}
+.nav-logo img{height:52px;filter:drop-shadow(0 4px 12px rgba(219,39,119,.2));transition:transform .3s}
+.nav-logo img:hover{transform:scale(1.05) rotate(-2deg)}
+.nav-links{display:flex;gap:24px;list-style:none}
+.nav-links a{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:500;color:var(--muted);text-decoration:none;letter-spacing:1px;transition:color .2s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:1px;background:var(--rose);transform:scaleX(0);transition:transform .3s}
+.nav-links a.active{color:var(--rose-deep)}
+.nav-links a.active::after{transform:scaleX(1)}
+.nav-links a:hover{color:var(--rose-deep)}.nav-links a:hover::after{transform:scaleX(1)}
+.nav-right{display:flex;align-items:center;gap:12px}
+.cart-btn{position:relative;background:linear-gradient(135deg,var(--rose),var(--rose-deep));color:white;padding:10px 20px;border-radius:50px;font-size:.85rem;text-decoration:none;font-weight:500;letter-spacing:.5px;box-shadow:0 8px 24px rgba(219,39,119,.3);transition:transform .2s,box-shadow .2s;display:flex;align-items:center;gap:8px;cursor:pointer;border:none}
+.cart-btn:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(219,39,119,.4)}
+.cart-count{background:white;color:var(--rose-deep);border-radius:50%;width:20px;height:20px;font-size:.7rem;font-weight:700;display:flex;align-items:center;justify-content:center;min-width:20px;transition:transform .3s}
+.cart-count.bump{transform:scale(1.4)}
+
+/* Hero */
+.menu-hero{padding:140px 48px 60px;text-align:center;position:relative;overflow:hidden}
+.menu-hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(244,114,182,.1) 0%,transparent 70%)}
+.menu-hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(244,114,182,.1);border:1px solid rgba(244,114,182,.3);padding:6px 18px;border-radius:50px;font-size:.72rem;color:var(--rose-deep);letter-spacing:3px;text-transform:uppercase;margin-bottom:16px}
+.menu-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4.5rem);font-weight:900;line-height:1.0;margin-bottom:12px}
+.menu-hero h1 em{font-style:italic;background:linear-gradient(135deg,var(--rose),var(--rose-deep));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.menu-hero p{font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--muted);max-width:480px;margin:0 auto}
+
+/* Filter tabs */
+.filter-bar{display:flex;gap:10px;justify-content:center;padding:32px 48px 16px;flex-wrap:wrap;position:sticky;top:85px;z-index:50;background:rgba(255,249,251,.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(244,114,182,.08)}
+.filter-tab{font-family:'Cormorant Garamond',serif;font-size:.95rem;font-weight:500;letter-spacing:1px;padding:8px 22px;border-radius:50px;border:1.5px solid rgba(244,114,182,.25);color:var(--muted);background:white;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:7px}
+.filter-tab:hover{border-color:var(--rose);color:var(--rose-deep)}
+.filter-tab.active{background:linear-gradient(135deg,var(--rose),var(--rose-deep));border-color:transparent;color:white;box-shadow:0 6px 20px rgba(219,39,119,.25)}
+
+/* Menu sections */
+.menu-section{padding:48px 48px 20px;max-width:1200px;margin:0 auto}
+.menu-section-header{display:flex;align-items:baseline;gap:16px;margin-bottom:8px}
+.menu-section-title{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:800;color:var(--rose-deep)}
+.menu-section-note{font-family:'Cormorant Garamond',serif;font-size:.9rem;color:var(--muted);font-style:italic}
+.menu-divider{height:1px;background:linear-gradient(90deg,rgba(244,114,182,.3),transparent);margin-bottom:28px}
+
+/* Product cards */
+.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;margin-bottom:40px}
+
+/* Cake product card - horizontal */
+.cake-card{background:white;border-radius:20px;padding:24px;border:1px solid rgba(244,114,182,.1);display:flex;gap:20px;align-items:center;transition:all .3s;cursor:pointer;position:relative;overflow:hidden}
+.cake-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--rose),var(--rose-deep));opacity:0;transition:opacity .3s}
+.cake-card:hover{box-shadow:0 16px 48px rgba(219,39,119,.12);transform:translateY(-4px)}
+.cake-card:hover::before{opacity:1}
+.cake-card-emoji{font-size:2.8rem;flex-shrink:0;width:68px;height:68px;background:var(--blush);border-radius:16px;display:flex;align-items:center;justify-content:center}
+.cake-card-body{flex:1}
+.cake-card-name{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;margin-bottom:4px}
+.cake-card-desc{font-size:.8rem;color:var(--muted);line-height:1.6;margin-bottom:12px}
+.cake-card-price{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:800;color:var(--rose-deep)}
+.cake-card-price small{font-family:'DM Sans',sans-serif;font-size:.7rem;font-weight:400;color:var(--muted)}
+.cake-card-actions{display:flex;align-items:center;justify-content:space-between;margin-top:12px}
+.qty-control{display:flex;align-items:center;gap:8px;background:var(--blush);border-radius:50px;padding:4px 12px;border:1px solid rgba(244,114,182,.2)}
+.qty-btn{background:none;border:none;font-size:1.1rem;color:var(--rose-deep);cursor:pointer;padding:0 4px;line-height:1;transition:transform .15s;font-weight:700}
+.qty-btn:hover{transform:scale(1.3)}
+.qty-val{font-size:.9rem;font-weight:600;min-width:18px;text-align:center;color:var(--text)}
+.add-btn{background:linear-gradient(135deg,var(--rose),var(--rose-deep));color:white;border:none;padding:8px 18px;border-radius:50px;font-size:.78rem;font-weight:600;cursor:pointer;letter-spacing:.5px;transition:all .2s;box-shadow:0 4px 16px rgba(219,39,119,.25)}
+.add-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(219,39,119,.35)}
+.add-btn.added{background:linear-gradient(135deg,#4ade80,#16a34a);box-shadow:0 4px 16px rgba(22,163,74,.25)}
+.add-btn.added::before{content:'✓ '}
+
+/* Cookie grid - denser */
+.cookies-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-bottom:48px}
+.cookie-card{background:white;border-radius:20px;padding:22px;border:1px solid rgba(244,114,182,.1);transition:all .3s;cursor:pointer;position:relative;overflow:hidden}
+.cookie-card::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(244,114,182,.04),rgba(219,39,119,.06));opacity:0;transition:opacity .3s;pointer-events:none}
+.cookie-card:hover{box-shadow:0 16px 48px rgba(219,39,119,.12);transform:translateY(-4px)}
+.cookie-card:hover::after{opacity:1}
+.cookie-top-bar{height:3px;background:linear-gradient(90deg,var(--rose),var(--rose-deep));border-radius:3px 3px 0 0;position:absolute;top:0;left:0;right:0;transform:scaleX(0);transition:transform .3s;transform-origin:left}
+.cookie-card:hover .cookie-top-bar{transform:scaleX(1)}
+.cookie-emoji{font-size:2.2rem;margin-bottom:12px;display:block}
+.cookie-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;margin-bottom:6px;line-height:1.3}
+.cookie-desc{font-size:.78rem;color:var(--muted);line-height:1.6;margin-bottom:14px}
+.cookie-footer{display:flex;align-items:center;justify-content:space-between}
+.cookie-price{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:800;color:var(--rose-deep)}
+.cookie-add{width:32px;height:32px;background:linear-gradient(135deg,var(--rose),var(--rose-deep));border:none;border-radius:50%;color:white;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;box-shadow:0 4px 12px rgba(219,39,119,.3)}
+.cookie-add:hover{transform:scale(1.15);box-shadow:0 6px 20px rgba(219,39,119,.4)}
+.cookie-add.in-cart{background:linear-gradient(135deg,#4ade80,#16a34a);box-shadow:0 4px 12px rgba(22,163,74,.3)}
+
+/* Cookie qty */
+.cookie-qty{display:flex;align-items:center;gap:6px}
+.cqty-btn{width:26px;height:26px;border-radius:50%;border:1.5px solid rgba(244,114,182,.4);background:white;color:var(--rose-deep);font-size:.9rem;cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:700;transition:all .2s}
+.cqty-btn:hover{background:var(--rose-deep);color:white;border-color:var(--rose-deep)}
+.cqty-val{font-size:.85rem;font-weight:600;min-width:16px;text-align:center}
+
+/* Pack highlight */
+.pack-card{grid-column:1/-1;background:linear-gradient(135deg,rgba(244,114,182,.08),rgba(219,39,119,.06));border:1.5px solid rgba(244,114,182,.3);border-radius:20px;padding:24px 28px;display:flex;align-items:center;gap:20px;transition:all .3s}
+.pack-card:hover{box-shadow:0 16px 48px rgba(219,39,119,.12);transform:translateY(-3px)}
+.pack-emoji{font-size:3rem;flex-shrink:0}
+.pack-body{flex:1}
+.pack-name{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:800;margin-bottom:4px}
+.pack-desc{font-size:.82rem;color:var(--muted);line-height:1.6}
+.pack-price{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:800;color:var(--rose-deep);margin-right:16px;white-space:nowrap}
+.pack-add{background:linear-gradient(135deg,var(--rose),var(--rose-deep));color:white;border:none;padding:10px 24px;border-radius:50px;font-size:.82rem;font-weight:600;cursor:pointer;letter-spacing:.5px;transition:all .2s;box-shadow:0 6px 20px rgba(219,39,119,.25);white-space:nowrap}
+.pack-add:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(219,39,119,.35)}
+
+/* Flavors note */
+.flavors-note{background:white;border:1px solid rgba(244,114,182,.15);border-radius:16px;padding:20px 24px;margin-bottom:28px;display:flex;gap:12px;align-items:flex-start}
+.flavors-note-icon{font-size:1.4rem}
+.flavors-note-text{font-size:.82rem;color:var(--muted);line-height:1.7}
+.flavors-note-text strong{color:var(--text)}
+
+/* Flavor selector */
+.flavor-selector{margin-bottom:12px}
+.flavor-selector label{font-size:.72rem;letter-spacing:1px;text-transform:uppercase;color:var(--muted);font-weight:500;display:block;margin-bottom:6px}
+.flavor-pills{display:flex;flex-wrap:wrap;gap:6px}
+.flavor-pill{font-size:.72rem;padding:4px 12px;border-radius:50px;border:1px solid rgba(244,114,182,.25);background:var(--blush);color:var(--muted);cursor:pointer;transition:all .2s;font-family:'Cormorant Garamond',serif;font-weight:500;letter-spacing:.5px}
+.flavor-pill:hover{border-color:var(--rose);color:var(--rose-deep)}
+.flavor-pill.selected{background:linear-gradient(135deg,var(--rose-light),rgba(244,114,182,.2));border-color:var(--rose);color:var(--rose-deep);font-weight:600}
+
+/* CTA bottom */
+.menu-cta{text-align:center;padding:40px 48px 80px;background:var(--blush)}
+.menu-cta p{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--muted);margin-bottom:20px}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--rose),var(--rose-deep));color:white;padding:14px 32px;border-radius:50px;font-size:.9rem;font-weight:500;text-decoration:none;box-shadow:0 12px 32px rgba(219,39,119,.35);transition:transform .2s,box-shadow .2s;letter-spacing:.5px}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 20px 40px rgba(219,39,119,.4)}
+.btn-secondary{display:inline-flex;align-items:center;gap:8px;border:1.5px solid rgba(244,114,182,.4);color:var(--rose-deep);padding:14px 32px;border-radius:50px;font-size:.9rem;font-weight:500;text-decoration:none;transition:all .2s;letter-spacing:.5px}
+.btn-secondary:hover{background:rgba(244,114,182,.08);border-color:var(--rose);transform:translateY(-3px)}
+
+/* Toast */
+.toast{position:fixed;bottom:32px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--text);color:white;padding:12px 24px;border-radius:50px;font-size:.85rem;font-weight:500;z-index:1000;transition:transform .4s cubic-bezier(.34,1.56,.64,1);display:flex;align-items:center;gap:10px;box-shadow:0 16px 40px rgba(0,0,0,.2)}
+.toast.show{transform:translateX(-50%) translateY(0)}
+.toast-icon{font-size:1rem}
+
+@media(max-width:900px){
+  nav{padding:14px 20px}.nav-links{display:none}
+  .menu-hero{padding:110px 20px 40px}
+  .filter-bar{padding:20px 16px 12px;top:80px;gap:8px}
+  .filter-tab{font-size:.82rem;padding:7px 16px}
+  .menu-section{padding:36px 20px 16px}
+  .products-grid{grid-template-columns:1fr}
+  .cookies-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
+  .pack-card{flex-direction:column;align-items:flex-start}
+  .menu-cta{padding:32px 20px 60px}
+}
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="petal" style="left:5%;animation-duration:12s;animation-delay:0s;font-size:1rem">🌸</div>
+<div class="petal" style="left:25%;animation-duration:15s;animation-delay:-5s;font-size:.8rem">🌷</div>
+<div class="petal" style="left:60%;animation-duration:13s;animation-delay:-2s;font-size:.9rem">🌺</div>
+<div class="petal" style="left:85%;animation-duration:11s;animation-delay:-8s;font-size:1rem">🌸</div>
+
+<nav>
+  <a href="index.html" class="nav-logo"><img src="https://i.imgur.com/8ywHiOJ.jpeg" alt="Orisyard"></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="menu.html" class="active">Menu</a></li>
+    <li><a href="index.html#policies">Policies</a></li>
+    <li><a href="index.html#shipping">Shipping</a></li>
+    <li><a href="index.html#reviews">Reviews</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="cart-btn" onclick="window.location.href='cart.html'" id="cartBtn">
+      🛍️ Cart <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </div>
+</nav>
+
+<section class="menu-hero">
+  <div class="menu-hero-bg"></div>
+  <div style="position:relative;z-index:1">
+    <div class="menu-hero-tag">🌸 Handcrafted to Order</div>
+    <h1>Our Full <em>Menu</em></h1>
+    <p>Cakes, cupcakes, bentos, and cookies — all made fresh in Merrillville, Indiana.</p>
+  </div>
+</section>
+
+<div class="filter-bar" id="filterBar">
+  <button class="filter-tab active" data-filter="all" onclick="filterMenu(this,'all')">🌸 All Items</button>
+  <button class="filter-tab" data-filter="cakes" onclick="filterMenu(this,'cakes')">🎂 Cakes</button>
+  <button class="filter-tab" data-filter="cupcakes" onclick="filterMenu(this,'cupcakes')">🧁 Cupcakes</button>
+  <button class="filter-tab" data-filter="cookies" onclick="filterMenu(this,'cookies')">🍪 Cookies</button>
+  <button class="filter-tab" data-filter="bentos" onclick="filterMenu(this,'bentos')">🍱 Bento</button>
+</div>
+
+<!-- CAKES -->
+<div class="menu-section" id="section-cakes" data-category="cakes">
+  <div class="menu-section-header">
+    <div class="menu-section-title">🎂 Cakes</div>
+    <div class="menu-section-note">Prices starting from · Vanilla Swiss meringue buttercream · Decor & writing additional</div>
+  </div>
+  <div class="menu-divider"></div>
+  <div class="flavors-note">
+    <div class="flavors-note-icon">🎨</div>
+    <div class="flavors-note-text"><strong>Choose your flavor:</strong> White and Chocolate are included. Funfetti or Red Velvet add +$4. Select below when adding to cart. Custom designs should be ordered 2–3 weeks in advance.</div>
+  </div>
+  <div class="products-grid">
+    <!-- Round 5in -->
+    <div class="cake-card" data-id="cake-5in" data-name="Round Cake 5in." data-base="60" data-emoji="🔵">
+      <div class="cake-card-emoji">🔵</div>
+      <div class="cake-card-body">
+        <div class="cake-card-name">Round Cake 5in.</div>
+        <div class="cake-card-desc">3 layers · Serves 8–10 people</div>
+        <div class="flavor-selector">
+          <label>Flavor</label>
+          <div class="flavor-pills">
+            <div class="flavor-pill selected" data-addon="0" onclick="selectFlavor(this)">⬜ White</div>
+            <div class="flavor-pill" data-addon="0" onclick="selectFlavor(this)">🍫 Chocolate</div>
+            <div class="flavor-pill" data-addon="4" onclick="selectFlavor(this)">🎉 Funfetti +$4</div>
+            <div class="flavor-pill" data-addon="4" onclick="selectFlavor(this)">❤️ Red Velvet +$4</div>
+          </div>
+        </div>
+        <div class="cake-card-actions">
+          <div class="cake-card-price" id="price-cake-5in">$60 <small>starting</small></div>
+          <button class="add-btn" onclick="addCakeToCart(this,'cake-5in','Round Cake 5in.',60)">+ Add to Cart</button>
+        </div>
+      </div>
+    </div>
+    <!-- Round 6in -->
+    <div class="cake-card" data-id="cake-6in" data-name="Round Cake 6in." data-base="70" data-emoji="🔵">
+      <div class="cake-card-emoji">🔵</div>
+      <div class="cake-card-body">
+        <div class="cake-card-name">Round Cake 6in.</div>
+        <div class="cake-card-desc">3 layers · Serves 12–16 people</div>
+        <div class="flavor-selector">
+          <label>Flavor</label>
+          <div class="flavor-pills">
+            <div class="flavor-pill selected" data-addon="0" onclick="selectFlavor(this)">⬜ White</div>
+            <div class="flavor-pill" data-addon="0" onclick="selectFlavor(this)">🍫 Chocolate</div>
+            <div class="flavor-pill" data-addon="4" onclick="selectFlavor(this)">🎉 Funfetti +$4</div>
+            <div class="flavor-pill" data-addon="4" onclick="selectFlavor(this)">❤️ Red Velvet +$4</div>
+          </div>
+        </div>
+        <div class="cake-card-actions">
+          <div class="cake-card-price" id="price-cake-6in">$70 <small>starting</small></div>
+          <button class="add-btn" onclick="addCakeToCart(this,'cake-6in','Round Cake 6in.',70)">+ Add to Cart</button>
+        </div>
+      </div>
+    </div>
+    <!-- Heart -->
+    <div class="cake-card" data-id="cake-heart" data-name="Heart Shaped Cake 6in." data-base="75" data-emoji="💗">
+      <div class="cake-card-emoji">💗</div>
+      <div class="cake-card-body">
+        <div class="cake-card-name">Heart Shaped Cake 6in.</div>
+        <div class="cake-card-desc">3 layers · Serves 12–16 people · Perfect for Valentine's, anniversaries & celebrations</div>
+        <div class="flavor-selector">
+          <label>Flavor</label>
+          <div class="flavor-pills">
+            <div class="flavor-pill selected" data-addon="0" onclick="selectFlavor(this)">⬜ White</div>
+            <div class="flavor-pill" data-addon="0" onclick="selectFlavor(this)">🍫 Chocolate</div>
+            <div class="flavor-pill" data-addon="4" onclick="selectFlavor(this)">🎉 Funfetti +$4</div>
+            <div class="flavor-pill" data-addon="4" onclick="selectFlavor(this)">❤️ Red Velvet +$4</div>
+          </div>
+        </div>
+        <div class="cake-card-actions">
+          <div class="cake-card-price" id="price-cake-heart">$75 <small>starting</small></div>
+          <button class="add-btn" onclick="addCakeToCart(this,'cake-heart','Heart Shaped Cake 6in.',75)">+ Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BENTOS -->
+<div class="menu-section" id="section-bentos" data-category="bentos">
+  <div class="menu-section-header">
+    <div class="menu-section-title">🍱 Bento Box</div>
+    <div class="menu-section-note">The perfect bundle</div>
+  </div>
+  <div class="menu-divider"></div>
+  <div class="products-grid">
+    <div class="cake-card" data-id="bento" data-name="Bento Box" data-base="60" data-emoji="🍱">
+      <div class="cake-card-emoji">🍱</div>
+      <div class="cake-card-body">
+        <div class="cake-card-name">Bento Box</div>
+        <div class="cake-card-desc">5in. cake + 8 cupcakes — the ultimate treat bundle. Flavor of your choice.</div>
+        <div class="flavor-selector">
+          <label>Flavor</label>
+          <div class="flavor-pills">
+            <div class="flavor-pill selected" data-addon="0" onclick="selectFlavor(this)">⬜ White</div>
+            <div class="flavor-pill" data-addon="0" onclick="selectFlavor(this)">🍫 Chocolate</div>
+            <div class="flavor-pill" data-addon="4" onclick="selectFlavor(this)">🎉 Funfetti +$4</div>
+            <div class="flavor-pill" data-addon="4" onclick="selectFlavor(this)">❤️ Red Velvet +$4</div>
+          </div>
+        </div>
+        <div class="cake-card-actions">
+          <div class="cake-card-price" id="price-bento">$60 <small>starting</small></div>
+          <button class="add-btn" onclick="addCakeToCart(this,'bento','Bento Box',60)">+ Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CUPCAKES -->
+<div class="menu-section" id="section-cupcakes" data-category="cupcakes">
+  <div class="menu-section-header">
+    <div class="menu-section-title">🧁 Cupcakes</div>
+    <div class="menu-section-note">Prices starting from</div>
+  </div>
+  <div class="menu-divider"></div>
+  <div class="products-grid" style="max-width:700px">
+    <div class="cake-card" data-id="cup12" data-name="12ct. Cupcakes" data-base="35" data-emoji="🧁">
+      <div class="cake-card-emoji">🧁</div>
+      <div class="cake-card-body">
+        <div class="cake-card-name">12 ct. Cupcakes</div>
+        <div class="cake-card-desc">Dozen cupcakes with vanilla Swiss meringue buttercream. Flavor of your choice.</div>
+        <div class="flavor-selector">
+          <label>Flavor</label>
+          <div class="flavor-pills">
+            <div class="flavor-pill selected" data-addon="0" onclick="selectFlavor(this)">⬜ White</div>
+            <div class="flavor-pill" data-addon="0" onclick="selectFlavor(this)">🍫 Chocolate</div>
+            <div class="flavor-pill" data-addon="4" onclick="selectFlavor(this)">🎉 Funfetti +$4</div>
+            <div class="flavor-pill" data-addon="4" onclick="selectFlavor(this)">❤️ Red Velvet +$4</div>
+          </div>
+        </div>
+        <div class="cake-card-actions">
+          <div class="cake-card-price" id="price-cup12">$35 <small>starting</small></div>
+          <button class="add-btn" onclick="addCakeToCart(this,'cup12','12ct. Cupcakes',35)">+ Add to Cart</button>
+        </div>
+      </div>
+    </div>
+    <div class="cake-card" data-id="cup24" data-name="24ct. Cupcakes" data-base="55" data-emoji="🧁">
+      <div class="cake-card-emoji">🧁</div>
+      <div class="cake-card-body">
+        <div class="cake-card-name">24 ct. Cupcakes</div>
+        <div class="cake-card-desc">Two dozen cupcakes — great for parties and events. Flavor of your choice.</div>
+        <div class="flavor-selector">
+          <label>Flavor</label>
+          <div class="flavor-pills">
+            <div class="flavor-pill selected" data-addon="0" onclick="selectFlavor(this)">⬜ White</div>
+            <div class="flavor-pill" data-addon="0" onclick="selectFlavor(this)">🍫 Chocolate</div>
+            <div class="flavor-pill" data-addon="4" onclick="selectFlavor(this)">🎉 Funfetti +$4</div>
+            <div class="flavor-pill" data-addon="4" onclick="selectFlavor(this)">❤️ Red Velvet +$4</div>
+          </div>
+        </div>
+        <div class="cake-card-actions">
+          <div class="cake-card-price" id="price-cup24">$55 <small>starting</small></div>
+          <button class="add-btn" onclick="addCakeToCart(this,'cup24','24ct. Cupcakes',55)">+ Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- COOKIES -->
+<div class="menu-section" id="section-cookies" data-category="cookies">
+  <div class="menu-section-header">
+    <div class="menu-section-title">🍪 Cookies, Cookies, Cookies!!!</div>
+    <div class="menu-section-note">Price per cookie · Ships nationwide</div>
+  </div>
+  <div class="menu-divider"></div>
+  <div class="cookies-grid">
+    <div class="cookie-card" data-id="c1">
+      <div class="cookie-top-bar"></div>
+      <span class="cookie-emoji">🍪</span>
+      <div class="cookie-name">Brown Butter Chocolate Chunk</div>
+      <div class="cookie-desc">Rich brown butter cookie loaded with generous chocolate chunks.</div>
+      <div class="cookie-footer">
+        <div class="cookie-price">$2.35</div>
+        <div class="cookie-qty" id="qty-c1" style="display:none">
+          <button class="cqty-btn" onclick="changeCookieQty('c1',-1)">−</button>
+          <span class="cqty-val" id="cqtyval-c1">1</span>
+          <button class="cqty-btn" onclick="changeCookieQty('c1',1)">+</button>
+        </div>
+        <button class="cookie-add" id="cadd-c1" onclick="addCookieToCart(this,'c1','Brown Butter Choc Chunk',2.35)">+</button>
+      </div>
+    </div>
+    <div class="cookie-card" data-id="c2">
+      <div class="cookie-top-bar"></div>
+      <span class="cookie-emoji">❤️</span>
+      <div class="cookie-name">Red Velvet Cheesecake</div>
+      <div class="cookie-desc">Stunning red velvet cookie with a creamy cheesecake filling.</div>
+      <div class="cookie-footer">
+        <div class="cookie-price">$2.99</div>
+        <div class="cookie-qty" id="qty-c2" style="display:none">
+          <button class="cqty-btn" onclick="changeCookieQty('c2',-1)">−</button>
+          <span class="cqty-val" id="cqtyval-c2">1</span>
+          <button class="cqty-btn" onclick="changeCookieQty('c2',1)">+</button>
+        </div>
+        <button class="cookie-add" id="cadd-c2" onclick="addCookieToCart(this,'c2','Red Velvet Cheesecake Cookie',2.99)">+</button>
+      </div>
+    </div>
+    <div class="cookie-card" data-id="c3">
+      <div class="cookie-top-bar"></div>
+      <span class="cookie-emoji">🥐</span>
+      <div class="cookie-name">Croissant Choc Chip (Crookie)</div>
+      <div class="cookie-desc">The viral crookie — buttery croissant meets chocolate chip cookie.</div>
+      <div class="cookie-footer">
+        <div class="cookie-price">$2.99</div>
+        <div class="cookie-qty" id="qty-c3" style="display:none">
+          <button class="cqty-btn" onclick="changeCookieQty('c3',-1)">−</button>
+          <span class="cqty-val" id="cqtyval-c3">1</span>
+          <button class="cqty-btn" onclick="changeCookieQty('c3',1)">+</button>
+        </div>
+        <button class="cookie-add" id="cadd-c3" onclick="addCookieToCart(this,'c3','Crookie Croissant Choc Chip',2.99)">+</button>
+      </div>
+    </div>
+    <div class="cookie-card" data-id="c4">
+      <div class="cookie-top-bar"></div>
+      <span class="cookie-emoji">🍬</span>
+      <div class="cookie-name">Valentines M&M Candy</div>
+      <div class="cookie-desc">Festive cookie loaded with colorful M&M candies.</div>
+      <div class="cookie-footer">
+        <div class="cookie-price">$2.99</div>
+        <div class="cookie-qty" id="qty-c4" style="display:none">
+          <button class="cqty-btn" onclick="changeCookieQty('c4',-1)">−</button>
+          <span class="cqty-val" id="cqtyval-c4">1</span>
+          <button class="cqty-btn" onclick="changeCookieQty('c4',1)">+</button>
+        </div>
+        <button class="cookie-add" id="cadd-c4" onclick="addCookieToCart(this,'c4','Valentines M&M Cookie',2.99)">+</button>
+      </div>
+    </div>
+    <div class="cookie-card" data-id="c5">
+      <div class="cookie-top-bar"></div>
+      <span class="cookie-emoji">💘</span>
+      <div class="cookie-name">Cupid's Shortbread</div>
+      <div class="cookie-desc">Delicate buttery shortbread — melt-in-your-mouth perfection.</div>
+      <div class="cookie-footer">
+        <div class="cookie-price">$2.99</div>
+        <div class="cookie-qty" id="qty-c5" style="display:none">
+          <button class="cqty-btn" onclick="changeCookieQty('c5',-1)">−</button>
+          <span class="cqty-val" id="cqtyval-c5">1</span>
+          <button class="cqty-btn" onclick="changeCookieQty('c5',1)">+</button>
+        </div>
+        <button class="cookie-add" id="cadd-c5" onclick="addCookieToCart(this,'c5','Cupid\'s Shortbread Cookie',2.99)">+</button>
+      </div>
+    </div>
+    <div class="cookie-card" data-id="c6">
+      <div class="cookie-top-bar"></div>
+      <span class="cookie-emoji">🍓</span>
+      <div class="cookie-name">Chocolate Covered Strawberry</div>
+      <div class="cookie-desc">Rich chocolate with real strawberry flavor throughout.</div>
+      <div class="cookie-footer">
+        <div class="cookie-price">$2.99</div>
+        <div class="cookie-qty" id="qty-c6" style="display:none">
+          <button class="cqty-btn" onclick="changeCookieQty('c6',-1)">−</button>
+          <span class="cqty-val" id="cqtyval-c6">1</span>
+          <button class="cqty-btn" onclick="changeCookieQty('c6',1)">+</button>
+        </div>
+        <button class="cookie-add" id="cadd-c6" onclick="addCookieToCart(this,'c6','Choc Covered Strawberry Cookie',2.99)">+</button>
+      </div>
+    </div>
+    <div class="cookie-card" data-id="c7">
+      <div class="cookie-top-bar"></div>
+      <span class="cookie-emoji">🍫</span>
+      <div class="cookie-name">Double Chocolate Deluxe</div>
+      <div class="cookie-desc">Double chocolate dough with extra chocolate chunks on top.</div>
+      <div class="cookie-footer">
+        <div class="cookie-price">$2.99</div>
+        <div class="cookie-qty" id="qty-c7" style="display:none">
+          <button class="cqty-btn" onclick="changeCookieQty('c7',-1)">−</button>
+          <span class="cqty-val" id="cqtyval-c7">1</span>
+          <button class="cqty-btn" onclick="changeCookieQty('c7',1)">+</button>
+        </div>
+        <button class="cookie-add" id="cadd-c7" onclick="addCookieToCart(this,'c7','Double Chocolate Deluxe Cookie',2.99)">+</button>
+      </div>
+    </div>
+    <!-- Pack -->
+    <div class="pack-card cookie-card" data-id="c8" style="display:flex">
+      <div class="cookie-top-bar"></div>
+      <div class="pack-emoji">🎁</div>
+      <div class="pack-body">
+        <div class="pack-name">Sweetheart Variety Pack</div>
+        <div class="pack-desc">A little bit of everything in one curated pack — perfect for gifting!</div>
+      </div>
+      <div class="pack-price">$19.99</div>
+      <button class="pack-add" id="cadd-c8" onclick="addCookieToCart(document.getElementById('cadd-c8'),'c8','Sweetheart Variety Pack',19.99,true)">+ Add to Cart</button>
+    </div>
+  </div>
+</div>
+
+<div class="menu-cta">
+  <p>Questions about an order? Call or DM us — we're happy to help!</p>
+  <div class="cta-btns">
+    <a href="tel:2198011578" class="btn-primary">📱 Call (219) 801-1578</a>
+    <a href="https://instagram.com/orisyard" target="_blank" class="btn-secondary">📸 DM @orisyard</a>
+    <a href="cart.html" class="btn-secondary">🛍️ View Cart</a>
+  </div>
+</div>
+
+<div id="toast" class="toast"><span class="toast-icon">🌸</span><span id="toastMsg">Added to cart!</span></div>
+
+<script>
+const cursor=document.getElementById('cursor'),ring=document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.transform=`translate(${mx-6}px,${my-6}px)`;});
+function animateRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.transform=`translate(${rx-18}px,${ry-18}px)`;requestAnimationFrame(animateRing);}
+animateRing();
+
+// Cart state
+let cart = JSON.parse(localStorage.getItem('orisyard_cart')||'[]');
+
+function saveCart(){localStorage.setItem('orisyard_cart',JSON.stringify(cart));}
+function updateCartCount(){
+  const total = cart.reduce((a,b)=>a+b.qty,0);
+  const el = document.getElementById('cartCount');
+  el.textContent = total;
+  el.classList.add('bump');
+  setTimeout(()=>el.classList.remove('bump'),300);
+}
+
+function showToast(msg){
+  const t=document.getElementById('toast');
+  document.getElementById('toastMsg').textContent=msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2500);
+}
+
+// Flavor selection
+function selectFlavor(pill){
+  const pills = pill.closest('.flavor-pills').querySelectorAll('.flavor-pill');
+  pills.forEach(p=>p.classList.remove('selected'));
+  pill.classList.add('selected');
+  // Update price display
+  const card = pill.closest('.cake-card');
+  if(!card) return;
+  const id = card.dataset.id;
+  const base = parseInt(card.dataset.base);
+  const addon = parseInt(pill.dataset.addon)||0;
+  const priceEl = document.getElementById('price-'+id);
+  if(priceEl) priceEl.innerHTML = `$${base+addon} <small>starting</small>`;
+}
+
+// Add cake/cupcake/bento to cart
+function addCakeToCart(btn, id, name, base){
+  const card = btn.closest('.cake-card');
+  const selectedPill = card.querySelector('.flavor-pill.selected');
+  const flavor = selectedPill ? selectedPill.textContent.replace(/\+\$\d+/,'').trim() : 'White';
+  const addon = parseInt(selectedPill?.dataset.addon)||0;
+  const price = base + addon;
+  const fullName = `${name} (${flavor})`;
+  
+  // Check if already in cart
+  const existing = cart.find(i=>i.id===id+'-'+flavor);
+  if(existing){ existing.qty++; }
+  else{ cart.push({id:id+'-'+flavor,name:fullName,price,qty:1,emoji:card.dataset.emoji||'🎂',type:'cake'}); }
+  
+  saveCart(); updateCartCount();
+  btn.classList.add('added');
+  btn.textContent='Added!';
+  setTimeout(()=>{btn.classList.remove('added');btn.textContent='+ Add to Cart';},2000);
+  showToast(`${fullName} added to cart 🌸`);
+}
+
+// Cookie cart
+const cookieQtys = {};
+function addCookieToCart(btn, id, name, price, isPack=false){
+  if(isPack){
+    const existing = cart.find(i=>i.id===id);
+    if(existing){ existing.qty++; }
+    else{ cart.push({id,name,price,qty:1,emoji:'🎁',type:'cookie'}); }
+    saveCart(); updateCartCount();
+    showToast(`${name} added to cart 🌸`);
+    return;
+  }
+  // Show qty control
+  document.getElementById('qty-'+id).style.display='flex';
+  btn.style.display='none';
+  btn.classList.add('in-cart');
+  cookieQtys[id] = 1;
+  
+  const emoji = btn.closest('.cookie-card').querySelector('.cookie-emoji').textContent;
+  const existing = cart.find(i=>i.id===id);
+  if(existing){ existing.qty++; }
+  else{ cart.push({id,name,price,qty:1,emoji,type:'cookie'}); }
+  saveCart(); updateCartCount();
+  showToast(`${name} added to cart 🌸`);
+}
+
+function changeCookieQty(id, delta){
+  const valEl = document.getElementById('cqtyval-'+id);
+  let qty = parseInt(valEl.textContent)+delta;
+  if(qty<0) qty=0;
+  valEl.textContent=qty;
+  const idx = cart.findIndex(i=>i.id===id);
+  if(qty===0){
+    if(idx>-1) cart.splice(idx,1);
+    document.getElementById('qty-'+id).style.display='none';
+    document.getElementById('cadd-'+id).style.display='flex';
+  } else {
+    if(idx>-1) cart[idx].qty=qty;
+  }
+  saveCart(); updateCartCount();
+}
+
+// Filter
+function filterMenu(tab, filter){
+  document.querySelectorAll('.filter-tab').forEach(t=>t.classList.remove('active'));
+  tab.classList.add('active');
+  const sections = document.querySelectorAll('[data-category]');
+  sections.forEach(s=>{
+    if(filter==='all'||s.dataset.category===filter){
+      s.style.display='';
+    } else {
+      s.style.display='none';
+    }
+  });
+}
+
+// Init
+updateCartCount();
+
+// Restore cookie qtys from cart
+cart.forEach(item=>{
+  if(item.type==='cookie' && item.id.startsWith('c')){
+    const qtyEl = document.getElementById('qty-'+item.id);
+    const addEl = document.getElementById('cadd-'+item.id);
+    const valEl = document.getElementById('cqtyval-'+item.id);
+    if(qtyEl && addEl && valEl){
+      qtyEl.style.display='flex';
+      addEl.style.display='none';
+      valEl.textContent=item.qty;
+    }
+  }
+});
+</script>
+</body>
+</html>
