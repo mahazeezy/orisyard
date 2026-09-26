@@ -1,38 +1,19 @@
 import type { Metadata } from "next";
-import { ButtonLink } from "@/components/button";
-import { Container } from "@/components/container";
-import { ProvisionalBanner } from "@/components/provisional-banner";
-import { SectionHeading } from "@/components/section-heading";
-import { SITE } from "@/lib/site";
+import { CartView } from "@/components/cart-view";
+import { SectionTitle } from "@/components/ui";
 
-export const metadata: Metadata = {
-  title: "Cart",
-  description: "OrisYard cart — coming in a later phase.",
-};
+export const metadata: Metadata = { title: "Your Cookie Cart" };
 
-export default function CartShellPage() {
+export default function CartPage() {
   return (
-    <section className="py-12 sm:py-16">
-      <Container className="max-w-2xl text-center">
-        <SectionHeading
-          eyebrow="Cart"
-          title="Cart coming soon"
-          description="The new storefront does not use the legacy localStorage cart. Persistent cart and order submission arrive in a later phase."
-          align="center"
-        />
-        <div className="mt-8">
-          <ProvisionalBanner>
-            Nothing is stored or submitted here. To place an order today, call{" "}
-            {SITE.phone.display} or message {SITE.instagram.handle}.
-          </ProvisionalBanner>
-        </div>
-        <div className="mt-10 flex flex-wrap justify-center gap-3">
-          <ButtonLink href="/menu">Browse menu</ButtonLink>
-          <ButtonLink href="/contact" variant="secondary">
-            Contact OrisYard
-          </ButtonLink>
-        </div>
-      </Container>
+    <section className="container page page-mid">
+      <div className="page-head center">
+        <p className="eyebrow">Your Cookie Cart</p>
+        <SectionTitle as="h1" center>
+          Your Order
+        </SectionTitle>
+      </div>
+      <CartView />
     </section>
   );
 }

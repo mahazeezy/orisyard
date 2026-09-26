@@ -1,60 +1,71 @@
-import type { Metadata } from "next";
-import { Cormorant_Garamond, DM_Sans, Playfair_Display } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import localFont from "next/font/local";
+import { FloatingOrderNow } from "@/components/floating-order";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { CartProvider } from "@/lib/cart";
 import { SITE } from "@/lib/site";
 import "./globals.css";
 
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-playfair",
+/* Fonts are self-hosted so builds never depend on network access. */
+const display = localFont({
+  src: "./fonts/dm-serif-display-latin-400-normal.woff2",
+  variable: "--font-display",
   display: "swap",
 });
-
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-  variable: "--font-cormorant",
+const serif = localFont({
+  src: [{ path: "./fonts/playfair-display-latin-500-normal.woff2", weight: "500" }],
+  variable: "--font-serif",
   display: "swap",
 });
-
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-dm-sans",
+const label = localFont({
+  src: [
+    { path: "./fonts/montserrat-latin-500-normal.woff2", weight: "500" },
+    { path: "./fonts/montserrat-latin-600-normal.woff2", weight: "600" },
+  ],
+  variable: "--font-label",
+  display: "swap",
+});
+const sans = localFont({
+  src: [
+    { path: "./fonts/lato-latin-400-normal.woff2", weight: "400" },
+    { path: "./fonts/lato-latin-700-normal.woff2", weight: "700" },
+  ],
+  variable: "--font-sans",
+  display: "swap",
+});
+const script = localFont({
+  src: "./fonts/oooh-baby-latin-400-normal.woff2",
+  variable: "--font-script",
   display: "swap",
 });
 
 export const metadata: Metadata = {
   title: {
-    default: `${SITE.name} · Cupcakes, Cakes, Bentos · ${SITE.location.label}`,
-    template: `%s · ${SITE.name}`,
+    default: `${SITE.wordmark} · Custom Cakes & Gourmet Cookies`,
+    template: `%s · ${SITE.wordmark}`,
   },
-  description: SITE.shortDescription,
+  description: SITE.description,
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export const viewport: Viewport = { themeColor: "#FCE7EB" };
+
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
       lang="en"
-      className={`${playfair.variable} ${cormorant.variable} ${dmSans.variable} h-full`}
+      className={`${display.variable} ${serif.variable} ${label.variable} ${sans.variable} ${script.variable}`}
     >
-      <body className="bg-page flex min-h-full flex-col antialiased">
-        <a
-          href="#main-content"
-          className="bg-rose-deep sr-only z-[100] rounded-full px-4 py-2 text-sm font-medium text-white focus:not-sr-only focus:absolute focus:top-3 focus:left-3"
-        >
+      <body>
+        <a href="#main-content" className="skip-link">
           Skip to content
         </a>
-        <SiteHeader />
-        <main id="main-content" className="flex-1">
-          {children}
-        </main>
-        <SiteFooter />
+        <CartProvider>
+          <SiteHeader />
+          <main id="main-content">{children}</main>
+          <SiteFooter />
+          <FloatingOrderNow />
+        </CartProvider>
       </body>
     </html>
   );

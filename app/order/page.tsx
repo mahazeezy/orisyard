@@ -1,34 +1,30 @@
 import type { Metadata } from "next";
 import { ChoiceCard } from "@/components/choice-card";
 import { SectionTitle } from "@/components/ui";
-import { CAKE_SIZES } from "@/lib/cake-builder";
-import { formatPrice } from "@/lib/ordering";
 
 export const metadata: Metadata = {
-  title: "Menu",
-  description: "Custom-designed cakes and our current gourmet cookie collection.",
+  title: "Order Now",
+  description: "Start a custom cake inquiry or shop OrisYard cookies.",
 };
 
-export default function MenuPage() {
-  const from = Math.min(...CAKE_SIZES.map((s) => s.startingPrice));
+export default function OrderPage() {
   return (
     <section className="container page">
       <SectionTitle as="h1" center>
-        Something Sweet For Every Mood
+        What Can We Make For You?
       </SectionTitle>
       <div className="choice-grid">
         <ChoiceCard
           href="/custom-cakes"
-          title="Custom Cakes"
-          meta={`Starting at ${formatPrice(from)}`}
-          text="Custom-designed cakes, built around your size, flavor, filling, colors and decorations."
-          cta="Build Your Cake"
+          title="Custom Cake"
+          text="Create your cake step by step and submit your design as an inquiry. We’ll review your request and contact you with your final quote."
+          cta="Start My Cake"
           image={{ src: "/images/hero-cake.png", width: 1590, height: 1927 }}
         />
         <ChoiceCard
           href="/cookies"
           title="Cookies"
-          text="Our current gourmet cookie collection."
+          text="Build your cookie order, add it to your cart, and checkout online."
           cta="Shop Cookies"
           placeholder={{ label: "OrisYard cookies", tone: "#C4884A" }}
         />
