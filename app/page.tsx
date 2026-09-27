@@ -29,7 +29,7 @@ export default function HomePage() {
             <h1 id="hero-title" className="hero-title">
               <span className="hero-title-line">Taste the</span>
               <span className="hero-title-anchor">
-                View. <Heart className="hero-heart" />
+                View <Heart className="hero-heart" />
               </span>
             </h1>
           </div>
