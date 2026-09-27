@@ -73,7 +73,7 @@ export default function HomePage() {
         <article className="category-card">
           <Link href="/custom-cakes" className="category-card-media is-cover" tabIndex={-1} aria-hidden="true">
             <Image
-              src="/images/custom-cake-scene.jpg"
+              src="/images/custom-cake-honey.jpg"
               width={2172}
               height={2170}
               sizes="(max-width: 899px) 45vw, 280px"

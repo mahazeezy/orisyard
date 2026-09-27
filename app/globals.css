@@ -2122,3 +2122,12 @@ textarea.input {
   object-fit: cover;
   padding: 0;
 }
+/* honey-bee cake scene: keep the whole cake (bows included) in frame, trim the stand foot instead */
+img[src*="custom-cake-honey"] {
+  object-position: center 12% !important;
+}
+@media (max-width: 899px) {
+  .category-card-media {
+    aspect-ratio: 1/1;
+  }
+}
