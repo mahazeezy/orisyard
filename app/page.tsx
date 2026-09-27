@@ -26,7 +26,6 @@ export default function HomePage() {
         </div>
         <section className="hero" aria-labelledby="hero-title">
           <div className="hero-t1">
-            <p className="eyebrow">Custom Cakes. Gourmet Cookies.</p>
             <h1 id="hero-title" className="hero-title">
               <span className="hero-title-line">Taste the</span>
               <span className="hero-title-anchor">
