@@ -2332,3 +2332,34 @@ img[src*="custom-cake-honey"] {
     z-index: 1;
   }
 }
+
+/* Hero v4 — oversized cake entering from the right, ~1/4 cropped by the hero edge */
+@media (min-width: 900px) {
+  .hero {
+    position: static; /* cake positions against the full-width .hero-bg */
+    --cw: min(50vw, 820px);
+    min-height: max(calc(100vh - var(--header-h)), calc(var(--cw) * 1.212 + 140px));
+  }
+  .hero-cake {
+    --cw: min(50vw, 820px);
+    position: absolute;
+    top: 50%;
+    right: calc(var(--cw) * -0.25);
+    width: var(--cw);
+    margin: 0;
+    transform: translateY(-50%);
+    z-index: 0;
+  }
+  .hero-t1,
+  .hero-t2 {
+    position: relative;
+    z-index: 1;
+  }
+}
+@media (max-width: 899px) {
+  .hero-cake {
+    --cw: 71vw;
+    width: var(--cw);
+    margin: 0 calc(var(--cw) * -0.25) 0 0;
+  }
+}

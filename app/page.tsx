@@ -41,7 +41,7 @@ export default function HomePage() {
               height={1927}
               priority
               quality={90}
-              sizes="(max-width: 899px) min(64vw, 300px), min(600px, 44vw)"
+              sizes="(max-width: 899px) 71vw, min(50vw, 820px)"
               alt="Tall white textured buttercream cake decorated with pink-tipped cream roses"
             />
           </div>
