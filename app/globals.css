@@ -2513,3 +2513,8 @@ img[src*="cake-roses"] {
     font-size: 12px;
   }
 }
+
+/* Real honey-bear heart cake photo: the cake sits low in the frame, keep it (not the wall) in view */
+img[src*="cake-honey-bear"] {
+  object-position: center 78% !important;
+}

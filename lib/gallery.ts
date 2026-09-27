@@ -51,11 +51,12 @@ export const GALLERY: GalleryItem[] = [
     label: "24 ct Cupcakes",
   },
   {
-    src: "/images/hero-cake.png",
-    alt: "Tall white textured buttercream cake with pink-tipped cream roses",
+    src: "/images/cake-roses.jpg",
+    alt: "Tall white textured buttercream cake with pink-tipped cream roses on a glass stand",
     category: "cakes",
-    width: 1590,
-    height: 1927,
+    width: 1800,
+    height: 2400,
+    cover: true,
   },
   {
     src: "/images/gallery/cupcakes-honey-bear.jpg",
@@ -67,11 +68,12 @@ export const GALLERY: GalleryItem[] = [
     label: "12 ct Cupcakes",
   },
   {
-    src: "/images/custom-cake.png",
-    alt: "Yellow and mint custom baby shower cake with honeycomb, bees, honey dippers and white satin bows",
+    src: "/images/gallery/cake-honey-bear.jpg",
+    alt: "Yellow and mint heart-shaped baby shower cake with honeycomb, bees, honey dippers and white satin bows",
     category: "cakes",
-    width: 2216,
-    height: 2320,
+    width: 1800,
+    height: 2400,
+    cover: true,
     label: "8 Inch Heart",
   },
 ];
