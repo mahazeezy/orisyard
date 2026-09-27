@@ -54,12 +54,12 @@ export const CAKE_FILLINGS: PricedOption[] = [
 ];
 
 export const CAKE_ADDONS: PricedOption[] = [
-  { id: "bows", label: "Bows", price: 5, swatch: "#F7B8C8" },
-  { id: "cherries", label: "Cherries", price: 5, swatch: "#C8102E" },
-  { id: "butterflies", label: "Butterflies", price: 5, swatch: "#F3C6E0" },
-  { id: "disco-balls", label: "Disco Balls", price: 5, swatch: "#D8D8E0" },
-  { id: "custom-topper", label: "Custom Topper", price: 5, swatch: "#F2D4A8" },
-  { id: "fake-flowers", label: "Fake Flowers", price: 7, swatch: "#F9D2DC" },
+  { id: "bows", label: "Bows", price: 5, swatch: "#F7B8C8", image: "/images/addons/bows.jpg" },
+  { id: "cherries", label: "Cherries", price: 5, swatch: "#C8102E", image: "/images/addons/cherries.jpg" },
+  { id: "butterflies", label: "Butterflies", price: 5, swatch: "#F3C6E0", image: "/images/addons/butterflies.jpg" },
+  { id: "disco-balls", label: "Disco Balls", price: 5, swatch: "#D8D8E0", image: "/images/addons/disco-balls.jpg" },
+  { id: "custom-topper", label: "Custom Topper", price: 5, swatch: "#F2D4A8", image: "/images/addons/custom-topper.jpg" },
+  { id: "fake-flowers", label: "Fake Flowers", price: 7, swatch: "#F9D2DC", image: "/images/addons/fake-flowers.jpg" },
 ];
 
 export const WRITING_EXAMPLES = ["Happy Birthday", "Twenty Fine", "Chapter 25", "Virgo Baby"];

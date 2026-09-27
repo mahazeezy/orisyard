@@ -5,24 +5,25 @@
    ========================================================= */
 :root {
   --blush-50: #fce7eb;
-  --blush-100: #f9d9dc;
-  --blush-200: #f6c7cd;
-  --blush-300: #f3b5be;
+  --blush-100: #f7d0d7;
+  --blush-200: #f2bbc6;
+  --blush-300: #eba1b1;
   --cream: #fff8f7;
   --wine-900: #5e001d;
   --wine-800: #610d34;
   --wine-700: #70173b;
   --crimson: #a70022;
-  --magenta: #dc0650;
-  --accent: #e22767;
-  --pink-600: #db2a6a;
+  /* pinks below keep >= 4.5:1 as text on --blush-50 and under white text */
+  --magenta: #c70547;
+  --accent: #c9195b;
+  --pink-600: #c21a59;
   --ink: #49041f;
   --body: #68193f;
-  --muted: #796c74;
-  --line: rgba(220, 6, 80, 0.12);
-  --btn: linear-gradient(180deg, #ee5c8e, #db2a6a);
-  --btn-shadow: 0 8px 20px rgba(219, 42, 106, 0.26), inset 0 1px 0 rgba(255, 255, 255, 0.25);
-  --card-shadow: 0 8px 24px rgba(160, 20, 60, 0.1);
+  --muted: #6c4d5c;
+  --line: rgba(194, 26, 89, 0.26);
+  --btn: linear-gradient(180deg, #cf2a66, #bb1654);
+  --btn-shadow: 0 8px 20px rgba(187, 22, 84, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  --card-shadow: 0 8px 24px rgba(160, 20, 60, 0.14);
   --radius-card: 14px;
   --radius-tile: 10px;
 
@@ -420,22 +421,46 @@ button {
   width: 0.8em;
   height: 0.9em;
 }
-.header-cart {
-  position: relative;
-  display: inline-grid;
+.floating-cart {
+  position: fixed;
+  right: calc(16px + env(safe-area-inset-right));
+  bottom: calc(18px + env(safe-area-inset-bottom));
+  z-index: 35;
+  display: grid;
   place-items: center;
-  width: 36px;
-  height: 36px;
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--cream);
   color: var(--wine-800);
+  box-shadow: 0 10px 24px rgba(94, 0, 29, 0.18);
 }
-.header-cart svg {
+.floating-cart:hover {
+  color: var(--crimson);
+}
+.floating-cart svg {
   width: 24px;
   height: 24px;
 }
-.header-cart-count {
+/* Too narrow to sit beside the centred floating Order Now pill; take the lane above it. */
+@media (max-width: 359px) {
+  .floating-cart {
+    bottom: calc(80px + env(safe-area-inset-bottom));
+  }
+}
+@media (min-width: 900px) {
+  .floating-cart {
+    right: calc(28px + env(safe-area-inset-right));
+    bottom: calc(28px + env(safe-area-inset-bottom));
+    width: 56px;
+    height: 56px;
+  }
+}
+.floating-cart-count {
   position: absolute;
-  top: 0;
-  right: -2px;
+  top: 2px;
+  right: 0;
   min-width: 18px;
   height: 18px;
   padding: 0 4px;
@@ -577,10 +602,6 @@ button {
   background: var(--blush-100);
   color: var(--crimson);
 }
-.drawer-heart {
-  margin-left: 8px;
-  width: 0.6em;
-}
 
 /* floating Order Now (mobile) */
 .floating-order {
@@ -620,7 +641,7 @@ button {
   position: relative;
   margin-top: 40px;
   background: var(--blush-300);
-  color: #ae2d58;
+  color: #861843;
   padding: 34px var(--gutter) 90px;
   text-align: center;
 }
@@ -648,7 +669,7 @@ button {
   text-transform: uppercase;
 }
 .footer-heart {
-  color: #ae2d58;
+  color: #861843;
   width: 1.6em;
   height: 1.9em;
 }
@@ -673,7 +694,6 @@ button {
   margin: 18px 0 0;
   font: 400 12px var(--f-sans);
   color: var(--body);
-  opacity: 0.75;
 }
 @media (min-width: 900px) {
   .site-footer {
@@ -1481,6 +1501,13 @@ textarea.input {
   box-shadow: inset 0 -6px 12px rgba(0, 0, 0, 0.12), 0 4px 10px rgba(160, 20, 60, 0.12);
   border: 3px solid #fff;
 }
+.swatch-photo {
+  position: relative;
+  overflow: hidden;
+}
+.swatch-photo img {
+  object-fit: cover;
+}
 .swatch-none {
   display: grid;
   place-items: center;
@@ -2225,9 +2252,12 @@ img[src*="custom-cake-honey"] {
   height: 0.6em;
   margin-left: -0.05em;
   vertical-align: 0.02em;
+  color: #e22767;
+  filter: drop-shadow(0 0 0.6px color-mix(in srgb, currentColor 50%, transparent));
 }
 .hero-heart path {
-  fill: currentColor;
+  /* page background colour, so the cake behind the heart is hidden */
+  fill: var(--blush-50);
 }
 .hero-cake {
   --cw: min(84vw, 380px);
@@ -2246,6 +2276,7 @@ img[src*="custom-cake-honey"] {
 }
 @media (min-width: 900px) {
   .hero {
+    --hf: clamp(60px, 5.4vw, 86px); /* headline size; the cake is scaled from it */
     max-width: 1440px;
     padding: clamp(48px, 7vh, 88px) clamp(48px, 7vw, 120px) clamp(56px, 8vh, 96px);
     grid-template-columns: minmax(0, 42fr) minmax(0, 58fr);
@@ -2263,7 +2294,7 @@ img[src*="custom-cake-honey"] {
   }
   .hero-title {
     margin-top: 22px;
-    font-size: clamp(60px, 5.4vw, 86px);
+    font-size: var(--hf);
     line-height: 1.04;
   }
   .hero-cake {
@@ -2400,10 +2431,13 @@ img[src*="custom-cake-honey"] {
     --tl: calc(max(0px, (100vw - 1440px) / 2) + clamp(48px, 7vw, 120px));
     min-height: var(--hh);
   }
+  /* Same cake-to-headline proportions as the phone hero (cake 100vw vs headline 9.8vw):
+     10.2× the headline size wide, starting 2.13× in from the text, 0.21× above the hero top. */
   .hero-cake {
-    --cl: calc(var(--tl) - 12px);
-    --cw: calc((100vw - var(--cl)) / 0.8); /* ~20% cropped by the right edge */
-    --ct: 28px;
+    --cl: calc(var(--tl) + var(--hf) * 2.13);
+    --cw: calc(var(--hf) * 10.2);
+    --ct: calc(var(--hf) * -0.21);
+    right: auto; /* v4's right offset + v2's justify-self would otherwise re-centre it */
   }
 }
 @media (max-width: 899px) {

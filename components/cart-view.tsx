@@ -17,6 +17,9 @@ export function CartView() {
         <PillLink href="/cookies" size="md" arrow>
           Shop Cookies
         </PillLink>
+        <PillLink href="/custom-cakes" size="md" arrow>
+          Shop Cakes
+        </PillLink>
       </div>
     );
   }

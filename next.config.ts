@@ -9,7 +9,6 @@ const nextConfig: NextConfig = {
       { source: "/menu/cakes", destination: "/custom-cakes", permanent: true },
       { source: "/menu/:category", destination: "/menu", permanent: true },
       { source: "/products/:slug", destination: "/menu", permanent: true },
-      { source: "/about", destination: "/", permanent: true },
       { source: "/index.html", destination: "/", permanent: true },
       { source: "/menu.html", destination: "/menu", permanent: true },
       { source: "/cart.html", destination: "/cart", permanent: true },

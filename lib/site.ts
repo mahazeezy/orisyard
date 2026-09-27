@@ -31,3 +31,12 @@ export const NAV_LINKS = [
 
 /** Links shown inline in the desktop header (reference shows these five). */
 export const HEADER_LINKS = NAV_LINKS.filter((l) => l.href !== "/order");
+
+/** Links revealed by the hamburger drawer. */
+export const DRAWER_LINKS = [
+  { href: "/menu", label: "Menu" },
+  { href: "/gallery", label: "Gallery" },
+  { href: "/contact", label: "Contact" },
+  { href: "/policies", label: "Policies" },
+  { href: "/about", label: "About" },
+] as const;

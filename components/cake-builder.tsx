@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { CakeShape } from "@/components/cake-shape";
@@ -628,6 +629,13 @@ function Step({
 }
 
 function Swatch({ option }: { option: PricedOption }) {
+  if (option.image) {
+    return (
+      <span className="swatch swatch-photo" style={{ background: option.swatch }} aria-hidden="true">
+        <Image src={option.image} alt="" fill sizes="(max-width: 899px) 26vw, 150px" />
+      </span>
+    );
+  }
   return <span className="swatch" style={{ background: option.swatch }} aria-hidden="true" />;
 }
 

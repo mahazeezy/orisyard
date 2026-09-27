@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
+import { FloatingCart } from "@/components/floating-cart";
 import { FloatingOrderNow } from "@/components/floating-order";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -65,6 +66,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <main id="main-content">{children}</main>
           <SiteFooter />
           <FloatingOrderNow />
+          <FloatingCart />
         </CartProvider>
       </body>
     </html>
