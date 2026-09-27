@@ -2363,3 +2363,72 @@ img[src*="custom-cake-honey"] {
     margin: 0 calc(var(--cw) * -0.25) 0 0;
   }
 }
+
+/* Hero v5 — dramatic oversized cake reaching under the headline.
+   The cake sits behind the text; a blush halo around each glyph knocks the cake
+   out directly beneath the letters so the typography stays clean. */
+.hero {
+  --halo: #fcebee;
+}
+.hero-title,
+.hero-lead {
+  /* stacked tight shadows build an opaque blush knockout hugging each glyph,
+     wider ones feather it out so the cake dissolves softly around the letters */
+  text-shadow:
+    0 0 1px var(--halo), 0 0 1px var(--halo), 0 0 2px var(--halo), 0 0 2px var(--halo),
+    0 0 3px var(--halo), 0 0 3px var(--halo), 0 0 5px var(--halo), 0 0 5px var(--halo),
+    0 0 8px var(--halo), 0 0 8px var(--halo), 0 0 12px var(--halo), 0 0 12px var(--halo),
+    0 0 18px var(--halo), 0 0 26px var(--halo), 0 0 38px var(--halo), 0 0 54px var(--halo);
+}
+.hero-heart {
+  filter: drop-shadow(0 0 2px var(--halo)) drop-shadow(0 0 5px var(--halo)) drop-shadow(0 0 10px var(--halo))
+    drop-shadow(0 0 18px var(--halo)) drop-shadow(0 0 30px var(--halo));
+}
+.hero-cake-shadow {
+  display: none;
+}
+.hero-cake {
+  position: absolute;
+  --ct: 0px;
+  top: var(--ct);
+  left: var(--cl);
+  width: var(--cw);
+  margin: 0;
+  transform: none;
+  z-index: 0;
+  grid-area: auto; /* position against the hero box, not a grid cell */
+  pointer-events: none;
+  /* soft landing into the section below instead of a hard crop line */
+  -webkit-mask-image: linear-gradient(to bottom, #000 calc(var(--hh) - var(--ct) - 150px), transparent calc(var(--hh) - var(--ct)));
+  mask-image: linear-gradient(to bottom, #000 calc(var(--hh) - var(--ct) - 150px), transparent calc(var(--hh) - var(--ct)));
+}
+.hero-t1,
+.hero-t2 {
+  position: relative;
+  z-index: 1;
+}
+@media (min-width: 900px) {
+  .hero {
+    position: static;
+    --hh: max(calc(100vh - var(--header-h)), 680px);
+    /* x of the "T": centred 1440 container + its left padding */
+    --tl: calc(max(0px, (100vw - 1440px) / 2) + clamp(48px, 7vw, 120px));
+    min-height: var(--hh);
+  }
+  .hero-cake {
+    --cl: calc(var(--tl) - 12px);
+    --cw: calc((100vw - var(--cl)) / 0.8); /* ~20% cropped by the right edge */
+    --ct: 28px;
+  }
+}
+@media (max-width: 899px) {
+  .hero {
+    --hh: 470px;
+    min-height: var(--hh);
+  }
+  .hero-cake {
+    --cl: 26vw;
+    --cw: 100vw; /* ~26% cropped by the right edge; .hero-bg clips it */
+    --ct: -8px;
+  }
+}
