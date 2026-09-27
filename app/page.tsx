@@ -75,7 +75,7 @@ export default function HomePage() {
             <Image
               src="/images/custom-cake-scene.jpg"
               width={2172}
-              height={1890}
+              height={2170}
               sizes="(max-width: 899px) 45vw, 280px"
               alt=""
             />
