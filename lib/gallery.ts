@@ -11,6 +11,8 @@ export type GalleryItem = {
   height: number;
   /** Full photo (fills its tile) rather than a transparent cut-out. */
   cover?: boolean;
+  /** Size/count tag shown on the photo, as supplied by OrisYard (e.g. "8 Inch Round"). */
+  label?: string;
 };
 
 export const GALLERY: GalleryItem[] = [
@@ -21,6 +23,7 @@ export const GALLERY: GalleryItem[] = [
     width: 1350,
     height: 1800,
     cover: true,
+    label: "8 Inch Round",
   },
   {
     src: "/images/cookies.jpg",
@@ -45,6 +48,7 @@ export const GALLERY: GalleryItem[] = [
     width: 1350,
     height: 1800,
     cover: true,
+    label: "24 ct Cupcakes",
   },
   {
     src: "/images/hero-cake.png",
@@ -60,6 +64,7 @@ export const GALLERY: GalleryItem[] = [
     width: 1350,
     height: 1800,
     cover: true,
+    label: "12 ct Cupcakes",
   },
   {
     src: "/images/custom-cake.png",
@@ -67,6 +72,7 @@ export const GALLERY: GalleryItem[] = [
     category: "cakes",
     width: 2216,
     height: 2320,
+    label: "8 Inch Heart",
   },
 ];
 

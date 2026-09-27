@@ -81,6 +81,7 @@ export default function HomePage() {
               sizes="(max-width: 899px) 45vw, 280px"
               alt=""
             />
+            <span className="photo-tag">8 Inch Heart</span>
           </Link>
           <div className="category-card-body">
             <h2 className="card-title">Custom Cakes</h2>
@@ -124,6 +125,7 @@ export default function HomePage() {
             <li key={g.src}>
               <Link href="/gallery" className={`tile ${g.cover ? "is-cover" : ""}`}>
                 <Image src={g.src} width={g.width} height={g.height} sizes="(max-width: 899px) 33vw, 190px" alt={g.alt} />
+                {g.label ? <span className="photo-tag">{g.label}</span> : null}
               </Link>
             </li>
           ))}

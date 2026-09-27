@@ -2414,3 +2414,44 @@ img[src*="custom-cake-honey"] {
     --ct: -8px;
   }
 }
+
+/* Size/count tags on real product photos (gallery, favorites, category cards) */
+.gallery-item,
+.favorites-strip .tile,
+.category-card-media,
+.choice-card-media {
+  position: relative;
+}
+.photo-tag {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  z-index: 1;
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--wine-900);
+  font: 600 11px/1.2 var(--f-label);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(94, 0, 29, 0.12);
+  pointer-events: none;
+}
+.favorites-strip .photo-tag {
+  left: 6px;
+  bottom: 6px;
+  padding: 3px 7px;
+  font-size: 9px;
+}
+@media (min-width: 900px) {
+  .photo-tag {
+    left: 14px;
+    bottom: 14px;
+    font-size: 12px;
+  }
+  .favorites-strip .photo-tag {
+    left: 8px;
+    bottom: 8px;
+    font-size: 10px;
+  }
+}
