@@ -19,6 +19,13 @@ export const GALLERY: GalleryItem[] = [
     width: 1590,
     height: 1927,
   },
+  {
+    src: "/images/custom-cake.png",
+    alt: "Yellow and mint custom baby shower cake with honeycomb, bees, honey dippers and white satin bows",
+    category: "cakes",
+    width: 2216,
+    height: 2320,
+  },
 ];
 
 /** Number of placeholder tiles to show per category until real photos arrive. */

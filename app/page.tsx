@@ -73,9 +73,9 @@ export default function HomePage() {
         <article className="category-card">
           <Link href="/custom-cakes" className="category-card-media" tabIndex={-1} aria-hidden="true">
             <Image
-              src="/images/hero-cake.png"
-              width={1590}
-              height={1927}
+              src="/images/custom-cake.png"
+              width={2216}
+              height={2320}
               sizes="(max-width: 899px) 45vw, 280px"
               alt=""
             />
