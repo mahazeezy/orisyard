@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useState } from "react";
@@ -13,11 +14,14 @@ function isActive(pathname: string, href: string) {
 
 export function Wordmark({ small }: { small?: boolean }) {
   return (
-    <Link href="/" className={`wordmark ${small ? "is-small" : ""}`} aria-label={`${SITE.wordmark} home`}>
+    <Link href="/" className={`brand ${small ? "is-small" : ""}`} aria-label={`${SITE.wordmark} home`}>
+      <Image src="/images/logo-badge.png" alt="" width={320} height={320} priority className="brand-logo" />
+      <span className="wordmark">
       <span className="wordmark-name">
         {SITE.wordmark} <Heart className="wordmark-heart" />
       </span>
       <span className="wordmark-sub">{SITE.subline}</span>
+      </span>
     </Link>
   );
 }
