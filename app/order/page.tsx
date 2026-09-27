@@ -19,7 +19,7 @@ export default function OrderPage() {
           title="Custom Cake"
           text="Create your cake step by step and submit your design as an inquiry. We’ll review your request and contact you with your final quote."
           cta="Start My Cake"
-          image={{ src: "/images/chocolate-cherry-cake.jpg", width: 860, height: 688 }}
+          image={{ src: "/images/cake-roses.jpg", width: 1800, height: 2400 }}
           cover
         />
         <ChoiceCard

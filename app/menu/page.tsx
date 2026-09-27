@@ -23,7 +23,7 @@ export default function MenuPage() {
           meta={`Starting at ${formatPrice(from)}`}
           text="Custom-designed cakes, built around your size, flavor, filling, colors and decorations."
           cta="Build Your Cake"
-          image={{ src: "/images/custom-cake-honey.jpg", width: 2172, height: 2170 }}
+          image={{ src: "/images/cake-roses.jpg", width: 1800, height: 2400 }}
           cover
         />
         <ChoiceCard

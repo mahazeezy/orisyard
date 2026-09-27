@@ -75,9 +75,9 @@ export default function HomePage() {
         <article className="category-card">
           <Link href="/custom-cakes" className="category-card-media is-cover" tabIndex={-1} aria-hidden="true">
             <Image
-              src="/images/custom-cake-honey.jpg"
-              width={2172}
-              height={2170}
+              src="/images/cake-roses.jpg"
+              width={1800}
+              height={2400}
               sizes="(max-width: 899px) 45vw, 280px"
               alt=""
             />
@@ -125,6 +125,7 @@ export default function HomePage() {
               <Link href="/gallery" className={`tile ${g.cover ? "is-cover" : ""}`}>
                 <Image src={g.src} width={g.width} height={g.height} sizes="(max-width: 899px) 33vw, 190px" alt={g.alt} />
               </Link>
+              {g.label ? <span className="tile-caption">{g.label}</span> : null}
             </li>
           ))}
           {Array.from({ length: emptySlots }).map((_, i) => (
