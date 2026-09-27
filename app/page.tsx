@@ -89,8 +89,14 @@ export default function HomePage() {
           </div>
         </article>
         <article className="category-card">
-          <Link href="/cookies" className="category-card-media" tabIndex={-1} aria-hidden="true">
-            <PhotoSlot label="OrisYard cookies" tone="#C4884A" />
+          <Link href="/cookies" className="category-card-media is-cover" tabIndex={-1} aria-hidden="true">
+            <Image
+              src="/images/cookies.jpg"
+              width={2800}
+              height={2340}
+              sizes="(max-width: 899px) 45vw, 280px"
+              alt=""
+            />
           </Link>
           <div className="category-card-body">
             <h2 className="card-title">Cookies</h2>
@@ -114,7 +120,7 @@ export default function HomePage() {
         <ul className="favorites-strip">
           {favorites.map((g) => (
             <li key={g.src}>
-              <Link href="/gallery" className="tile">
+              <Link href="/gallery" className={`tile ${g.cover ? "is-cover" : ""}`}>
                 <Image src={g.src} width={g.width} height={g.height} sizes="(max-width: 899px) 33vw, 190px" alt={g.alt} />
               </Link>
             </li>

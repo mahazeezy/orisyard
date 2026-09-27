@@ -39,7 +39,7 @@ export function GalleryGrid() {
       </div>
       <ul className="gallery-grid">
         {items.map((g) => (
-          <li key={g.src} className="gallery-item">
+          <li key={g.src} className={`gallery-item ${g.cover ? "is-cover" : ""}`}>
             <Image src={g.src} alt={g.alt} width={g.width} height={g.height} sizes="(max-width: 899px) 46vw, 380px" />
           </li>
         ))}

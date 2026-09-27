@@ -2098,3 +2098,27 @@ textarea.input {
 .choice-card-media {
   min-width: 0;
 }
+
+/* photos that fill their frame edge-to-edge (e.g. cookie group shot) */
+.category-card-media.is-cover img,
+.choice-card-media.is-cover img {
+  object-fit: cover;
+  object-position: center;
+  padding: 0;
+}
+.category-card-media {
+  aspect-ratio: 6/5;
+}
+.choice-card-media {
+  aspect-ratio: 5/4;
+}
+@media (min-width: 900px) {
+  .category-card-media {
+    aspect-ratio: auto;
+  }
+}
+.gallery-item.is-cover img,
+.favorites-strip .tile.is-cover img {
+  object-fit: cover;
+  padding: 0;
+}

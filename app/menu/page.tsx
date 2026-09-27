@@ -30,7 +30,8 @@ export default function MenuPage() {
           title="Cookies"
           text="Our current gourmet cookie collection."
           cta="Shop Cookies"
-          placeholder={{ label: "OrisYard cookies", tone: "#C4884A" }}
+          image={{ src: "/images/cookies.jpg", width: 2800, height: 2340 }}
+          cover
         />
       </div>
     </section>

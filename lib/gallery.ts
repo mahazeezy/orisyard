@@ -9,6 +9,8 @@ export type GalleryItem = {
   category: "cakes" | "cookies";
   width: number;
   height: number;
+  /** Full photo (fills its tile) rather than a transparent cut-out. */
+  cover?: boolean;
 };
 
 export const GALLERY: GalleryItem[] = [
@@ -25,6 +27,14 @@ export const GALLERY: GalleryItem[] = [
     category: "cakes",
     width: 2216,
     height: 2320,
+  },
+  {
+    src: "/images/cookies.jpg",
+    alt: "Six OrisYard gourmet cookies on a cooling rack",
+    category: "cookies",
+    width: 2800,
+    height: 2340,
+    cover: true,
   },
 ];
 

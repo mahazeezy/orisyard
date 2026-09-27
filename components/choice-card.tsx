@@ -11,13 +11,15 @@ type Props = {
   meta?: string;
   image?: { src: string; width: number; height: number };
   placeholder?: { label: string; tone: string };
+  /** Fill the frame edge-to-edge (photos) instead of fitting a cut-out inside it. */
+  cover?: boolean;
 };
 
 /** Large stacked photo card (reference: Menu / Order Now screens). */
-export function ChoiceCard({ href, title, text, cta, meta, image, placeholder }: Props) {
+export function ChoiceCard({ href, title, text, cta, meta, image, placeholder, cover }: Props) {
   return (
     <article className="choice-card">
-      <Link href={href} className="choice-card-media" tabIndex={-1} aria-hidden="true">
+      <Link href={href} className={`choice-card-media ${cover ? "is-cover" : ""}`} tabIndex={-1} aria-hidden="true">
         {image ? (
           <Image src={image.src} width={image.width} height={image.height} sizes="(max-width: 899px) 92vw, 540px" alt="" />
         ) : placeholder ? (
