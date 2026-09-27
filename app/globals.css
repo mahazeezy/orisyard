@@ -2365,25 +2365,7 @@ img[src*="custom-cake-honey"] {
 }
 
 /* Hero v5 — dramatic oversized cake reaching under the headline.
-   The cake sits behind the text; a blush halo around each glyph knocks the cake
-   out directly beneath the letters so the typography stays clean. */
-.hero {
-  --halo: #fcebee;
-}
-.hero-title,
-.hero-lead {
-  /* stacked tight shadows build an opaque blush knockout hugging each glyph,
-     wider ones feather it out so the cake dissolves softly around the letters */
-  text-shadow:
-    0 0 1px var(--halo), 0 0 1px var(--halo), 0 0 2px var(--halo), 0 0 2px var(--halo),
-    0 0 3px var(--halo), 0 0 3px var(--halo), 0 0 5px var(--halo), 0 0 5px var(--halo),
-    0 0 8px var(--halo), 0 0 8px var(--halo), 0 0 12px var(--halo), 0 0 12px var(--halo),
-    0 0 18px var(--halo), 0 0 26px var(--halo), 0 0 38px var(--halo), 0 0 54px var(--halo);
-}
-.hero-heart {
-  filter: drop-shadow(0 0 2px var(--halo)) drop-shadow(0 0 5px var(--halo)) drop-shadow(0 0 10px var(--halo))
-    drop-shadow(0 0 18px var(--halo)) drop-shadow(0 0 30px var(--halo));
-}
+   The cake sits behind the text; the opaque glyphs cover it with a hard edge. */
 .hero-cake-shadow {
   display: none;
 }
