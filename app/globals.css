@@ -2275,3 +2275,60 @@ img[src*="custom-cake-honey"] {
     line-height: 1.55;
   }
 }
+
+/* Hero v3 — phone: text left, cake right (side by side, cake bleeds off the right edge) */
+@media (max-width: 899px) {
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.82fr);
+    grid-template-areas: "t1 cake" "t2 cake";
+    align-items: center;
+    column-gap: 0;
+    padding: 30px 0 38px 20px;
+    min-height: 420px;
+  }
+  .hero-t1 {
+    grid-area: t1;
+    align-self: end;
+    position: relative;
+    z-index: 2;
+  }
+  .hero-t2 {
+    grid-area: t2;
+    align-self: start;
+    margin-top: 16px;
+    position: relative;
+    z-index: 2;
+  }
+  .hero .eyebrow {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    max-width: 150px;
+  }
+  .hero-title {
+    margin-top: 12px;
+    font-size: clamp(32px, 9.8vw, 42px);
+    line-height: 1.02;
+  }
+  .hero-lead {
+    max-width: 152px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .hero-cta {
+    margin-top: 16px;
+    height: 44px;
+    padding: 0 18px;
+    font-size: 12px;
+    gap: 7px;
+  }
+  .hero-cake {
+    grid-area: cake;
+    align-self: center;
+    justify-self: end;
+    --cw: min(60vw, 290px);
+    width: var(--cw);
+    margin: 0 -26px 0 0;
+    z-index: 1;
+  }
+}
