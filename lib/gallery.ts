@@ -15,18 +15,12 @@ export type GalleryItem = {
 
 export const GALLERY: GalleryItem[] = [
   {
-    src: "/images/hero-cake.png",
-    alt: "Tall white textured buttercream cake with pink-tipped cream roses",
+    src: "/images/gallery/cake-chocolate-cherry.jpg",
+    alt: "Tall chocolate cake with vintage piping, brown satin ribbons and fresh dark cherries on top",
     category: "cakes",
-    width: 1590,
-    height: 1927,
-  },
-  {
-    src: "/images/custom-cake.png",
-    alt: "Yellow and mint custom baby shower cake with honeycomb, bees, honey dippers and white satin bows",
-    category: "cakes",
-    width: 2216,
-    height: 2320,
+    width: 1350,
+    height: 1800,
+    cover: true,
   },
   {
     src: "/images/cookies.jpg",
@@ -35,6 +29,44 @@ export const GALLERY: GalleryItem[] = [
     width: 2800,
     height: 2340,
     cover: true,
+  },
+  {
+    src: "/images/gallery/cake-banana-caramel.jpg",
+    alt: "Speckled buttercream cake with wavy piping, caramelized banana slices and caramel chocolate shards on a glass stand",
+    category: "cakes",
+    width: 1086,
+    height: 1448,
+    cover: true,
+  },
+  {
+    src: "/images/gallery/cupcakes-blue-gold.jpg",
+    alt: "Boxed cupcakes piped in blue, gold and white buttercream with pearl sprinkles and an OrisYard sticker",
+    category: "cakes",
+    width: 1350,
+    height: 1800,
+    cover: true,
+  },
+  {
+    src: "/images/hero-cake.png",
+    alt: "Tall white textured buttercream cake with pink-tipped cream roses",
+    category: "cakes",
+    width: 1590,
+    height: 1927,
+  },
+  {
+    src: "/images/gallery/cupcakes-honey-bear.jpg",
+    alt: "Honey-themed cupcakes in yellow and mint buttercream with honeycomb, bee toppers and wooden honey dippers",
+    category: "cakes",
+    width: 1350,
+    height: 1800,
+    cover: true,
+  },
+  {
+    src: "/images/custom-cake.png",
+    alt: "Yellow and mint custom baby shower cake with honeycomb, bees, honey dippers and white satin bows",
+    category: "cakes",
+    width: 2216,
+    height: 2320,
   },
 ];
 
