@@ -2195,3 +2195,83 @@ img[src*="custom-cake-honey"] {
     height: 64px;
   }
 }
+
+/* =========================================================
+   Hero composition v2 — editorial, spacious (hero only)
+   ========================================================= */
+.hero {
+  padding: 36px 22px 44px;
+}
+.hero-title {
+  margin: 16px 0 0;
+  font: 400 54px/1.04 var(--f-display);
+  letter-spacing: -0.03em;
+  color: var(--wine-900);
+}
+.hero-title-line,
+.hero-title-anchor {
+  display: block;
+}
+.hero-title-line {
+  color: var(--wine-800);
+}
+.hero-title-anchor {
+  font-size: 1.22em;
+  line-height: 1;
+  white-space: nowrap;
+}
+.hero-heart {
+  width: 0.5em;
+  height: 0.6em;
+  margin-left: 0.04em;
+  vertical-align: 0.02em;
+}
+.hero-cake {
+  --cw: min(84vw, 380px);
+  margin: 44px auto 12px;
+}
+.hero-cake-shadow {
+  bottom: -2%;
+  height: 5%;
+  background: radial-gradient(closest-side, rgba(150, 40, 80, 0.16), rgba(150, 40, 80, 0));
+}
+.hero-t2 {
+  margin-top: 34px;
+}
+.hero-cta {
+  margin-top: 22px;
+}
+@media (min-width: 900px) {
+  .hero {
+    max-width: 1440px;
+    padding: clamp(48px, 7vh, 88px) clamp(48px, 7vw, 120px) clamp(56px, 8vh, 96px);
+    grid-template-columns: minmax(0, 42fr) minmax(0, 58fr);
+    grid-template-areas: "t1 cake" "t2 cake";
+    column-gap: clamp(24px, 4vw, 72px);
+    min-height: min(calc(100vh - var(--header-h)), 900px);
+    max-height: none;
+  }
+  .hero-t1 {
+    align-self: end;
+  }
+  .hero-t2 {
+    align-self: start;
+    margin-top: 36px;
+  }
+  .hero-title {
+    margin-top: 22px;
+    font-size: clamp(60px, 5.4vw, 86px);
+    line-height: 1.04;
+  }
+  .hero-cake {
+    --cw: min(600px, 34vw, calc((100vh - var(--header-h) - 150px) / 1.212));
+    justify-self: center;
+    align-self: center;
+    margin: 0 0 0 6%;
+  }
+  .hero-lead {
+    max-width: 380px;
+    font-size: 20px;
+    line-height: 1.55;
+  }
+}

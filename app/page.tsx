@@ -28,7 +28,10 @@ export default function HomePage() {
           <div className="hero-t1">
             <p className="eyebrow">Custom Cakes. Gourmet Cookies.</p>
             <h1 id="hero-title" className="hero-title">
-              Taste the <span className="nowrap">View. <Heart className="hero-heart" /></span>
+              <span className="hero-title-line">Taste the</span>
+              <span className="hero-title-anchor">
+                View. <Heart className="hero-heart" />
+              </span>
             </h1>
           </div>
           <div className="hero-cake">
@@ -39,7 +42,7 @@ export default function HomePage() {
               height={1927}
               priority
               quality={90}
-              sizes="(max-width: 899px) min(78vw, 340px), min(484px, 36vw)"
+              sizes="(max-width: 899px) min(84vw, 380px), min(600px, 44vw)"
               alt="Tall white textured buttercream cake decorated with pink-tipped cream roses"
             />
           </div>
