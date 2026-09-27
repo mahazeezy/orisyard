@@ -71,11 +71,11 @@ export default function HomePage() {
 
       <section className="container category-cards" aria-label="What we make">
         <article className="category-card">
-          <Link href="/custom-cakes" className="category-card-media" tabIndex={-1} aria-hidden="true">
+          <Link href="/custom-cakes" className="category-card-media is-cover" tabIndex={-1} aria-hidden="true">
             <Image
-              src="/images/custom-cake.png"
-              width={2216}
-              height={2320}
+              src="/images/custom-cake-scene.jpg"
+              width={2172}
+              height={1890}
               sizes="(max-width: 899px) 45vw, 280px"
               alt=""
             />
