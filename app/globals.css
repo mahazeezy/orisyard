@@ -2641,3 +2641,11 @@ body {
     padding: 16px 20px;
   }
 }
+
+/* Gallery + Featured Favorites: portrait frames so full photos fit with less cropping */
+.gallery-item {
+  aspect-ratio: 4/5;
+}
+.favorites-strip .tile {
+  aspect-ratio: 4/5;
+}

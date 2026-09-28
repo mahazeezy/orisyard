@@ -101,7 +101,7 @@ export const GALLERY: GalleryItem[] = [
     cover: true,
   },
   {
-    src: "/images/gallery/cookie-chocolate-caramel.jpg",
+    src: "/images/gallery/cookie-chocolate-caramel-v2.jpg",
     alt: "Gourmet cookie with chocolate chunks, caramel pieces and flaky sea salt",
     category: "cookies",
     width: 1800,
@@ -109,7 +109,7 @@ export const GALLERY: GalleryItem[] = [
     cover: true,
   },
   {
-    src: "/images/gallery/cake-honey-pooh-yellow.jpg",
+    src: "/images/gallery/cake-honey-pooh-yellow-v2.jpg",
     alt: "Butter-yellow vintage-piped honey cake with honeycomb, bee toppers, honey dippers and a honey-bear image on top",
     category: "cakes",
     width: 1800,
@@ -117,7 +117,7 @@ export const GALLERY: GalleryItem[] = [
     cover: true,
   },
   {
-    src: "/images/gallery/cake-black-knife-twenty-four.jpg",
+    src: "/images/gallery/cake-black-knife-twenty-four-v2.jpg",
     alt: "Black buttercream birthday cake with red drips, a “twenty four” topper and a cake knife on top",
     category: "cakes",
     width: 1800,
@@ -125,7 +125,7 @@ export const GALLERY: GalleryItem[] = [
     cover: true,
   },
   {
-    src: "/images/gallery/cake-mystery-van-alanna.jpg",
+    src: "/images/gallery/cake-mystery-van-alanna-v2.jpg",
     alt: "Two-tone blue and yellow birthday cake with a haunted-house “Alanna 23” topper, toy van and cartoon cut-outs",
     category: "cakes",
     width: 1800,
