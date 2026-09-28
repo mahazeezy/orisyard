@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
-import { CakeShape } from "@/components/cake-shape";
 import { Arrow, Heart, Notice, PillButton, PillLink } from "@/components/ui";
 import {
   CAKE_ADDONS,
@@ -271,16 +270,24 @@ export function CakeBuilder() {
                 <legend>{shape === "round" ? "Round" : "Heart"}</legend>
                 <div className="option-grid cols-3">
                   {CAKE_SIZES.filter((s) => s.shape === shape).map((s) => (
-                    <OptionTile
-                      key={s.id}
-                      type="radio"
-                      name="size"
-                      checked={draft.sizeId === s.id}
-                      onChange={() => set("sizeId", s.id)}
-                      media={<CakeShape shape={s.shape} inches={s.inches} />}
-                      label={s.label}
-                      meta={`Starting at ${formatPrice(s.startingPrice)}`}
-                    />
+                    <label key={s.id} className={`option-tile size-tile ${draft.sizeId === s.id ? "is-checked" : ""}`}>
+                      <input
+                        type="radio"
+                        name="size"
+                        checked={draft.sizeId === s.id}
+                        onChange={() => set("sizeId", s.id)}
+                        className="sr-only"
+                      />
+                      <span className="size-media">
+                        <Image src={s.image} alt="" width={320} height={250} sizes="(max-width: 899px) 30vw, 240px" />
+                      </span>
+                      <span className="size-label">{s.label}</span>
+                      <span className="size-portions">{s.portions}</span>
+                      <span className="size-rule" aria-hidden="true" />
+                      <span className="size-from">Starting at</span>
+                      <span className="size-price">{formatPrice(s.startingPrice)}</span>
+                      <Heart className="option-check" />
+                    </label>
                   ))}
                 </div>
               </fieldset>

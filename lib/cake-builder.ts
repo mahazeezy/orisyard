@@ -8,6 +8,10 @@ export type CakeSize = {
   inches: 6 | 8 | 10;
   label: string;
   startingPrice: number;
+  /** Approximate servings, as supplied by OrisYard. */
+  portions: string;
+  /** Size-selector graphic. */
+  image: string;
 };
 
 export type PricedOption = {
@@ -22,12 +26,12 @@ export type PricedOption = {
 };
 
 export const CAKE_SIZES: CakeSize[] = [
-  { id: "round-6", shape: "round", inches: 6, label: "6” Round", startingPrice: 75 },
-  { id: "round-8", shape: "round", inches: 8, label: "8” Round", startingPrice: 100 },
-  { id: "round-10", shape: "round", inches: 10, label: "10” Round", startingPrice: 130 },
-  { id: "heart-6", shape: "heart", inches: 6, label: "6” Heart", startingPrice: 85 },
-  { id: "heart-8", shape: "heart", inches: 8, label: "8” Heart", startingPrice: 110 },
-  { id: "heart-10", shape: "heart", inches: 10, label: "10” Heart", startingPrice: 145 },
+  { id: "round-6", shape: "round", inches: 6, label: "6” Round", startingPrice: 75, portions: "Approx 8–12 Portions", image: "/images/sizes/round-6.png" },
+  { id: "round-8", shape: "round", inches: 8, label: "8” Round", startingPrice: 100, portions: "Approx 12–15 Portions", image: "/images/sizes/round-8.png" },
+  { id: "round-10", shape: "round", inches: 10, label: "10” Round", startingPrice: 130, portions: "Approx 15–20 Portions", image: "/images/sizes/round-10.png" },
+  { id: "heart-6", shape: "heart", inches: 6, label: "6” Heart", startingPrice: 85, portions: "Approx 8–12 Portions", image: "/images/sizes/heart-6.png" },
+  { id: "heart-8", shape: "heart", inches: 8, label: "8” Heart", startingPrice: 110, portions: "Approx 12–15 Portions", image: "/images/sizes/heart-8.png" },
+  { id: "heart-10", shape: "heart", inches: 10, label: "10” Heart", startingPrice: 145, portions: "Approx 15–20 Portions", image: "/images/sizes/heart-10.png" },
 ];
 
 export const CAKE_FLAVORS: PricedOption[] = [
