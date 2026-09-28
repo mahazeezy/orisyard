@@ -2518,3 +2518,37 @@ img[src*="cake-roses"] {
 img[src*="cake-honey-bear"] {
   object-position: center 78% !important;
 }
+
+/* =========================================================
+   Viewport boundary — the page can never be wider than the screen
+   ========================================================= */
+/* Root: clip (not hide) horizontal overflow on both html and body. `clip` is not a
+   scroll container, so nothing can be panned/scrolled sideways (touch, keyboard focus,
+   find-in-page) and vertical scrolling + the sticky header are unaffected. Browsers
+   without `clip` keep the existing body `overflow-x: hidden`. */
+html {
+  overflow-x: clip;
+}
+body {
+  overflow-x: clip;
+}
+/* Hero art is deliberately wider than the screen (cake bleed, glow). Clip it instead of
+   `hidden`, so the hero box itself can't be scrolled sideways (it was ~100px scrollable). */
+.hero-bg {
+  overflow: clip;
+}
+/* Menu drawer: same, and keep the drawer's small wordmark at its small size on desktop —
+   it was inheriting the 44px header size and running ~110px off the right edge. */
+.drawer {
+  overflow: clip;
+}
+@media (min-width: 900px) {
+  .drawer .brand .wordmark-name {
+    font-size: 20px;
+  }
+  .drawer .brand .wordmark-sub {
+    margin-top: 5px;
+    font-size: 6.3px;
+    letter-spacing: 0.3em;
+  }
+}
