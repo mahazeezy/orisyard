@@ -43,3 +43,4 @@ next-env.d.ts
 # local working files (screenshots, git transfer bundles)
 /Claude outputs/
 *.bundle
+/_photo_originals/
