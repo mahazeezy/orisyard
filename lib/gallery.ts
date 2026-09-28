@@ -76,6 +76,30 @@ export const GALLERY: GalleryItem[] = [
     cover: true,
     label: "8 Inch Heart",
   },
+  {
+    src: "/images/gallery/cake-leopard-cherry-heart.jpg",
+    alt: "Heart-shaped leopard print cake with red and black vintage piping, red satin bows and glittered cherries",
+    category: "cakes",
+    width: 1800,
+    height: 2400,
+    cover: true,
+  },
+  {
+    src: "/images/gallery/cake-peach-pearl-crown.jpg",
+    alt: "Peach buttercream cake with vintage piping, gold and pearl sprinkles, a gold Happy Birthday topper and a gold crown",
+    category: "cakes",
+    width: 1800,
+    height: 2400,
+    cover: true,
+  },
+  {
+    src: "/images/gallery/cake-pink-kitty-bows.jpg",
+    alt: "Pink vintage-piped cake with ruffled buttercream layers, pink ribbon bows and a character image on top",
+    category: "cakes",
+    width: 1800,
+    height: 2400,
+    cover: true,
+  },
 ];
 
 /** Number of placeholder tiles to show per category until real photos arrive. */
